@@ -92,10 +92,10 @@ namespace CV_Checking
       private void lvTrans_Resize(object sender, EventArgs e)
       {
          int SEQ_WIDTH     = 75; 
-         int DATE_WIDTH    = 100;
+         int DATE_WIDTH    = 125;
          int AMOUNT_WIDTH  = 100;
-         int CLEARED_WIDTH = 75;
-         int FLAGGED_WIDTH = 75;
+         int CLEARED_WIDTH = 100;
+         int FLAGGED_WIDTH = 100;
          int DESC_WIDTH    = lvTrans.ClientRectangle.Width - SEQ_WIDTH - DATE_WIDTH - AMOUNT_WIDTH - CLEARED_WIDTH - FLAGGED_WIDTH - 5;
          
          
@@ -158,13 +158,13 @@ namespace CV_Checking
 
             if (chkDateRange.Checked)
             {
-               if ((t.Date() < dtStart.Value) || (t.Date() > dtEnd.Value))
+               if ((t.Date < dtStart.Value) || (t.Date > dtEnd.Value))
                {
                   continue;
                }
             }
             string[] strings = new string[] {t.ID.ToString(),
-                                             t.Date().ToString("yyyy-MM-dd"),
+                                             t.Date.ToString("yyyy-MM-dd"),
                                              t.Description,
                                              t.Amount.ToString("F2"),
                                              t.Cleared ? "X" : "",

@@ -185,7 +185,11 @@ $RECYCLE.BIN/
 # CHK detritus
 # =========================
 .DS_Store
+*.csv
+*.exe.config
+ImportResults.txt
+Software/app.config
 CV_Checking.exe
 CV_Checking.pdb
 data.bin
-
+DataBackup/

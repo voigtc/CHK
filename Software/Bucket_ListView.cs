@@ -12,9 +12,9 @@ namespace CV_Checking
    public partial class Bucket_ListView : ListView
    {
       List<Transaction> data = null;
-		private ColumnHeader columnHeader1; // Button Show Area
-		private ColumnHeader columnHeader2; // Statio
-      private ColumnHeader columnHeader3; // Stop
+		private ColumnHeader colHeaderDescription;
+		private ColumnHeader colHeaderAmount;
+
 
 		private ListViewItem li;
 		private int X=0;
@@ -40,29 +40,29 @@ namespace CV_Checking
          //this.SelectedIndexChanged += new EventHandler(Recipe_ListView_SelectedIndexChanged);
 			GridLines = true;
 
-			columnHeader1 = new System.Windows.Forms.ColumnHeader();
-			columnHeader1.Text = "Description";
-			columnHeader1.Width = 200;
+			colHeaderDescription = new System.Windows.Forms.ColumnHeader();
+			colHeaderDescription.Text = "Description";
+			colHeaderDescription.Width = 180;
 			
-			columnHeader2 = new System.Windows.Forms.ColumnHeader();
-			columnHeader2.Text = "Amount";
-			columnHeader2.TextAlign = HorizontalAlignment.Right;
-			columnHeader2.Width = 90;
-
-			columnHeader3 = new System.Windows.Forms.ColumnHeader();
-			columnHeader3.Text = "Increment";
-			columnHeader3.TextAlign = HorizontalAlignment.Right;
-			columnHeader3.Width = 90;
+			colHeaderAmount = new System.Windows.Forms.ColumnHeader();
+			colHeaderAmount.Text = "Amount";
+			colHeaderAmount.TextAlign = HorizontalAlignment.Right;
+			colHeaderAmount.Width = 110;
 
 			Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-																			this.columnHeader1,
-																			this.columnHeader2});//,
-																			//this.columnHeader3});
+																			this.colHeaderDescription,
+																			this.colHeaderAmount});//,
          this.MouseMove += new MouseEventHandler(Bucket_ListView_MouseMove);
          this.Resize += new EventHandler(Bucket_ListView_Resize);
          this.MouseUp += new MouseEventHandler(Bucket_ListView_MouseUp);
+         this.MouseEnter += new EventHandler(Bucket_ListView_MouseEnter);
          this.MouseLeave += new EventHandler(Bucket_ListView_MouseLeave);
          InitializeComponent();
+      }
+
+      void Bucket_ListView_MouseEnter(object sender, EventArgs e)
+      {
+         ShowButtons(true);
       }
 
       void Bucket_ListView_MouseLeave(object sender, EventArgs e)
@@ -70,24 +70,19 @@ namespace CV_Checking
          if (li != null && !bShowAmounts)
          {
             li.SubItems[1].Text = "------";
-         }
+         } 
       }
 
       private void btnIncrement_MouseMove(object sender, MouseEventArgs e)
       {
          if (li != null)
          {
-            string amt = ((Bucket)li.Tag).Amount.ToString("F2");
+            string amt = ((Bucket)li.Tag).Amount.ToString("F2").Replace("-","");
             if (li.SubItems[1].Text != amt)
             {
 			      li.SubItems[1].Text = amt;
 			   }
          }
-      }
-
-      private void btnIncrement_MouseLeave(object sender, EventArgs e)
-      {
-
       }
 
       void Bucket_ListView_MouseUp(object sender, MouseEventArgs e)
@@ -106,7 +101,7 @@ namespace CV_Checking
             else if (res == DialogResult.OK)
             {
                li.SubItems[0].Text = frm.bucket.Description;
-               li.SubItems[1].Text = frm.bucket.Amount.ToString("F2");
+               li.SubItems[1].Text = frm.bucket.Amount.ToString("F2").Replace("-","");
                //li.SubItems[2].Text = frm.bucket.IncrementAmount.ToString("F2");
                Fire_BucketChanged();
             }
@@ -127,9 +122,8 @@ namespace CV_Checking
       void Bucket_ListView_Resize(object sender, EventArgs e)
       {
          btnIncrement.Hide();
-			columnHeader1.Width = this.ClientRectangle.Width - 120-1;//240 -1;
-			columnHeader2.Width = 120;
-			//columnHeader3.Width = 120;
+			colHeaderAmount.Width = 150;
+			colHeaderDescription.Width = this.ClientRectangle.Width - colHeaderAmount.Width - 1;
       }
 
       void Bucket_ListView_MouseMove(object sender, MouseEventArgs e)
@@ -143,6 +137,7 @@ namespace CV_Checking
             {
                li.SubItems[1].Text = "------";
             }
+            btnIncrement.Hide();
 			   li = null;
 			   ShowButtons(false);
 			}
@@ -154,7 +149,7 @@ namespace CV_Checking
 			      li.SubItems[1].Text = "------";
 			   }
 			   li = newLvi;
-			   li.SubItems[1].Text = ((Bucket)li.Tag).Amount.ToString("F2");
+			   li.SubItems[1].Text = ((Bucket)li.Tag).Amount.ToString("F2").Replace("-","");
 			   X = e.X;
 			   Y = e.Y;
 			   ShowButtons(true);
@@ -192,7 +187,7 @@ namespace CV_Checking
          {
             Bucket b = (Bucket)li.Tag;
             b.Increment();
-            li.SubItems[1].Text = b.Amount.ToString("F2");
+            li.SubItems[1].Text = b.Amount.ToString("F2").Replace("-","");
             Fire_BucketChanged();
          }
       }
@@ -212,7 +207,7 @@ namespace CV_Checking
          {
             if (bShow)
             {
-               lvi.SubItems[1].Text = ((Bucket)lvi.Tag).Amount.ToString("F2");
+               lvi.SubItems[1].Text = ((Bucket)lvi.Tag).Amount.ToString("F2").Replace("-","");
             }
             else
             {
@@ -233,7 +228,7 @@ namespace CV_Checking
                ListViewItem lvi = new ListViewItem(new string[] {b.Description, "------"});
                if (bShowAmounts == true)
                {
-                  lvi.SubItems[1].Text = ((Bucket)li.Tag).Amount.ToString("F2");
+                  lvi.SubItems[1].Text = ((Bucket)li.Tag).Amount.ToString("F2").Replace("-","");
                }
                lvi.Tag = b;
                Items.Add(lvi);

@@ -5,7 +5,7 @@ TODO:
    Delete Backup files older than xx days old, or just ask to delete all backup files when exiting.
    Show Bucket amounts as positive in list view
 
+   How to get version from assembly..
 TEST:
-   Allow Zero debit amounts
-   Fix bug to delete bucket from list (not saving)
+
    

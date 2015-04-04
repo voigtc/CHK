@@ -44,7 +44,6 @@
          this.toolTip1.SetToolTip(this.btnIncrement, "Increment this bucket\'s value by the increment amount");
          this.btnIncrement.UseVisualStyleBackColor = true;
          this.btnIncrement.Visible = false;
-         this.btnIncrement.MouseLeave += new System.EventHandler(this.btnIncrement_MouseLeave);
          this.btnIncrement.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnIncrement_MouseMove);
          this.btnIncrement.Click += new System.EventHandler(this.btnIncrement_Click);
          // 

@@ -30,6 +30,17 @@ namespace CV_Checking
    [Serializable]
    public class Transaction
    {
+      #region CLASS DATA / CONSTRUCTORS
+      static int  sequenceNext   = 0;
+      int         id             = -1;
+      long        ticks          = DateTime.Now.Ticks;   // Stores Date
+      string      description    = "";
+      Category_T  category       = Category_T.Misc;
+      bool        bCleared       = false;
+      bool        bFlagged       = false;
+      decimal     amount         = 0;
+      bool        bModified      = true;
+
       public Transaction()
       {
          // parameterless constructor for serialization.
@@ -59,6 +70,7 @@ namespace CV_Checking
          amount      = (decimal)((double)_amount);
          id          = SEQUENCE_NEXT;
       }
+      #endregion CLASS DATA / CONSTRUCTORS
       
       #region OVERRIDES
       internal static string CSV_Header()
@@ -69,7 +81,7 @@ namespace CV_Checking
       internal string CSV_DataString()
       {
          return      id.ToString() +
-               "," + Date().ToString("yyyy-MM-dd") +
+               "," + Date.ToString("yyyy-MM-dd") +
                "," + category.ToString() +
                "," + description.Replace(","," ").ToString() +
                "," + amount.ToString() + 
@@ -82,12 +94,19 @@ namespace CV_Checking
       {
          return description + ", " + amount.ToString("F2");
       }
-      
+     
+      internal string ToStringPretty()
+      {
+         // Date, Amount, Desc
+         string sDate = Date.ToString("yyyy.MM.dd");
+         return string.Format("{0}, {1,10: 0.00;-0.00}, {2}", sDate, amount, description);
+      }
+     
       public override bool Equals(object obj)
       {
-         if (obj == null || GetType() != obj.GetType()) return false;
+         if (obj == null || GetType() != obj.GetType())  { return false; }
          Transaction t = (Transaction)obj;
-         return t.ticks == ticks && t.description == description && t.amount == amount;
+         return (t.ticks == ticks) && (t.amount == amount) && (t.description == description);
       }
       
       public override int GetHashCode()
@@ -96,71 +115,67 @@ namespace CV_Checking
       }
       #endregion OVERRIDES
 
+      #region GET / SET ACCESSORS
       internal static int SEQUENCE_NEXT
       {
          get { return sequenceNext++;  }
          set { sequenceNext = value;   }
-      } static int sequenceNext = 0;
+      }
       
-      #region CLASS DATA / ACCESSORS
       public int ID
       {
          get { return id;  }
          set { id = value; bModified = true; }
-      } int id = -1;
+      }
       
       public long Ticks
       {
          get { return ticks; }
          set { ticks = value; bModified = true; }
-      } long ticks = DateTime.Now.Ticks;
+      }
+      public DateTime Date
+      {
+         get {  return new DateTime(ticks); }
+         set {  ticks = value.Ticks; bModified = true; }
+      }
       
       public string Description
       {
          get { return description; }
          set { description = value; bModified = true; }
-      } string description = "";
+      }
       
       public Category_T Category
       {
          get { return category; }
          set { category = value; bModified = true; }
-      } Category_T category;
+      }
       
       public bool Cleared
       {
          get { return bCleared; }
          set { bCleared = value; bModified = true; }
-      } bool bCleared = false;
+      }
       
       public bool Flagged
       {
          get { return bFlagged;  }
          set { bFlagged = value; bModified = true; }
-      } bool bFlagged = false;
+      }
       
       public decimal Amount
       {
          get { return amount; }
          set { amount = value; bModified = true; }
-      } decimal amount = 0;
-      #endregion CLASS DATA / ACCESSORS
-      
-      #region HELPERS
+      }
+
       internal bool Modified
       {
          get { return bModified;  }
          set { bModified = value; }
-      } bool bModified = true;
+      } 
       
-      public DateTime Date()
-      {
-         return new DateTime(ticks);
-      }
-      public void SetDate(DateTime date)
-      {
-         ticks = date.Ticks;
-      }
-      #endregion HELPERS
+      #endregion CLASS DATA / ACCESSORS
+      
    }
 }

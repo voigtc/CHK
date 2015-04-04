@@ -20,17 +20,26 @@ namespace CV_Checking
 		{
 			InitializeComponent();
          toolStripcbColor.SelectedIndex = 1;
+         //Version v = System.Reflection.Assembly.GetExecutingAssembly().
+         Text = "Checking v" + Application.ProductVersion;
 		}
 
       private void frmMain_Load(object sender, EventArgs e)
       {
-			frmAbout frm = new frmAbout();
-			frm.ShowDialog();
-         if (frm.txtPassword.Text != "sw3E3ti3")
+         frmAbout frm = new frmAbout();
+			if (!System.Diagnostics.Debugger.IsAttached)
          {
-            MessageBox.Show("Invalid Password");
-            Close();
-            return;
+			   frm.ShowDialog();
+            if (frm.txtPassword.Text != "sw3E3ti3")
+            {
+               MessageBox.Show("Invalid Password");
+               Close();
+               return;
+            }
+         }
+         else
+         {
+            frm.txtPassword.Text = "sw3E3ti3";
          }
 			
 			data = Register.Load(frm.txtPassword.Text);
@@ -53,9 +62,9 @@ namespace CV_Checking
                data.Import_CvCheck(openFileDialog1.FileName);
             }
          }
-         bucket_ListView1.PopulateForm(data.Data);
-         bucket_ListView1._TransactionChanged += new TransactionChangedHandler(bucket_ListView1__BucketChanged);
-         bucket_ListView1._TransactionRemoved += new TransactionRemovedHandler(bucket_ListView1__BucketRemoved);
+         lvBuckets.PopulateForm(data.Data);
+         lvBuckets._TransactionChanged += new TransactionChangedHandler(bucket_ListView1__BucketChanged);
+         lvBuckets._TransactionRemoved += new TransactionRemovedHandler(bucket_ListView1__BucketRemoved);
 
 
          viewRegister   = new frmViewer(data.Data, true);
@@ -69,7 +78,7 @@ namespace CV_Checking
 
       void data__Status(string stat)
       {
-         Text = "Checking - " + stat;
+         Text = "Checking v" + Application.ProductVersion + " - " + stat;
       }
 
       void bucket_ListView1__BucketChanged()
@@ -80,6 +89,7 @@ namespace CV_Checking
       void bucket_ListView1__BucketRemoved()
       {
          data.bTransactionListModified = true;  // Set dirty flag
+         PopulateForm();
       }
 
       void viewRegister__TransactionChanged()
@@ -90,6 +100,7 @@ namespace CV_Checking
       void viewRegister__TransactionRemoved()
       {
          data.bTransactionListModified = true;  // Set Dirty flag
+         PopulateForm();
       }
 
 		private void PopulateForm()
@@ -258,7 +269,7 @@ namespace CV_Checking
          if (res == DialogResult.OK)
          {
             data.Data.Add(frm.bucket);
-            bucket_ListView1.PopulateForm(data.Data);
+            lvBuckets.PopulateForm(data.Data);
          }
       }
 
@@ -353,10 +364,6 @@ namespace CV_Checking
                MessageBox.Show("Balanced!");
             }          
          }
-         else
-         {
-            MessageBox.Show("Manually Balance by clearing matching Items from Register Data and Bank Data");
-         }
       }
 
       void Register__BalanceItemsCleared()
@@ -375,7 +382,7 @@ namespace CV_Checking
          txtTotalUncleared.Visible  = bShow || !bStealth;
          txtNumTransactions.Visible = bShow || !bStealth;
          lblBuckets.Visible         = bShow || !bStealth;
-         bucket_ListView1.ShowAmounts(bShow || !bStealth);
+         lvBuckets.ShowAmounts(bShow || !bStealth);
       }
       
       private void lblBalance_MouseEnter(object sender, EventArgs e)
@@ -428,7 +435,7 @@ namespace CV_Checking
          }
          
          BackColor                     = newColor;
-         bucket_ListView1.BackColor    = newColor;
+         lvBuckets.BackColor           = newColor;
          txtBalance.BackColor          = newColor;
          txtBankBalance.BackColor      = newColor;
          txtDiscrepancies.BackColor    = newColor;

@@ -20,7 +20,7 @@ namespace CV_Checking
       public static event BalanceItemsClearedHandler _BalanceItemsCleared;
       
       const string DATAFILE = "data.bin";
-      const string DATA_BAK_DIR = ".\\DATA_BACKUP\\";
+      const string DATA_BAK_DIR = ".\\DataBackup\\";
       
       // Seriazable Data
       List<Transaction> data = new List<Transaction>();
@@ -178,6 +178,7 @@ namespace CV_Checking
             _Status(s);
          }
       }
+
       #region LOAD/SAVE
       public static Register Load(string key)
       {
@@ -416,106 +417,114 @@ namespace CV_Checking
       public void Import_BankData(string csvFile)
       {
          Fire_Status("Opening Statement File " + csvFile);
-         StreamReader sr = new StreamReader(csvFile);         
-         
-         string line = sr.ReadLine(); // get rid of header line
-         line = line.Replace("\"", "");
-         if (line != "Account,Date,Check,Description,Amount")
-               //    "Seq,Date,Check,Description,Amount")
+         System.Threading.Thread.Sleep(500);
+
+         List<string> _lines = new List<string>(File.ReadAllLines(csvFile));
+         if (_lines.Count == 0)
          {
-            MessageBox.Show("First Line is not correct for Bank Data, aborting\r\n\r\n" +
-                            "Should be:  Seq,Date,Check,Description,Amount");
-            MessageBox.Show("Download file from bank, Draft | Details | Download csv, cut/paste into excel");                            
+            MessageBox.Show("Empty File");
             return;
          }
 
-         List<Transaction> bankDataNew = new List<Transaction>();
-         
-         line = sr.ReadLine();
-         while (line != null)
-         {
-            line = line.Replace("\"", "");
+         /////////////////////////////////////
+         // Check for and remove header row
+         /////////////////////////////////////
+         const int IX_DATE          = 1;
+         const int IX_CHECK         = 2;
+         const int IX_DESCRIPTION   = 3;
+         const int IX_AMOUNT        = 4;
+         string HEADER = "\"Account\",\"Date\",\"Check\",\"Description\",\"Amount\"";
 
-            Fire_Status("Parsing Line:  " + line);
-            int ix = line.IndexOf("$");
-            if (ix > 0)
+         if (_lines[0].Contains(HEADER) == false)
+         {
+            MessageBox.Show("First Line is not correct for Bank Data, aborting\r\n\r\n" +
+                            "Should be:  " + HEADER);
+            MessageBox.Show("Download file from bank, Balances | Details (Draft Account) | Download (Formatted as: Comma-Seperated-Values)");                            
+         }
+         _lines.RemoveAt(0);
+
+         /////////////////////////////////////
+         // Parse all the lines
+         /////////////////////////////////////
+         List<string> _results = new List<string>();
+         foreach (string s in _lines)
+         {
+            if (s == null) {  continue; }
+            string _sErr = "";
+            string _line = s.Replace("\"", ""); // Remove Quotes
+            string [] _cells = _line.Split(new char [] {','}, StringSplitOptions.None);
+            if (_cells.Length < 5)
             {
-               ix = line.IndexOf(",", ix);
-               if (ix > 0)
-               {
-                  line = line.Remove(ix, 1);
-               }
+               _sErr += "   Line Import failed:  incorrect # of items.  Expecting 5\r\n";
             }
-            line = line.Replace("\"","").Replace("(","-").Replace("$","").Replace(")","");
-            string [] splits = line.Split(new char [] {','});
-            if (splits.Length != 5)
+
+
+            // Parse Date
+            DateTime _date = new DateTime();
+            if (DateTime.TryParse(_cells[IX_DATE], out _date) == false)
             {
-               MessageBox.Show("Line " + line + " Cannot be imported, incorrect # of items, expecting 5");
-               line = sr.ReadLine();
-               continue;
+               _sErr += "   Line Import failed:  Couldn't parse date  " + _cells[IX_DATE] + "\r\n";
             }
-            
+
+            // Parse $amount  (first change parenthesis to minus sign.. and remove $
+            string _sAmount = _cells[IX_AMOUNT].Replace("(","-").Replace("$","").Replace(")","");
+            decimal _amount  = 0;
+            if (decimal.TryParse(_cells[IX_AMOUNT], out _amount) == false)
+            {
+               _sErr += "   Line Import failed:  Couldn't parse amount:  " + _cells[IX_AMOUNT] + "\r\n ";                  
+            }
+ 
+            // Add Check # to description
+            string _description = _cells[IX_DESCRIPTION];
+            if (_cells[IX_CHECK].Trim() != "")
+            {
+               _description = _cells[IX_CHECK] + " - " + _cells[IX_DESCRIPTION];
+            }
+            else
+            {
+               _description = _cells[IX_DESCRIPTION];
+            }
+
+            ////////////////////////////////////////////
+            // Add parsed data to new transaction list
+            // Check to see if it is new, then
+            // Add it to the master bankData list
+            ////////////////////////////////////////////
             Transaction t = new Transaction();
-            bool bOk = true;
-            DateTime date = new DateTime();
-            decimal amount  = 0;
-            if (splits[1] != "" && DateTime.TryParse(splits[1], out date) == false)
+            t.Amount       = _amount;
+            t.Date         = _date;
+            t.Description  = _description;
+            t.Cleared      = false;
+            if (_sErr != "")
             {
-               MessageBox.Show("Line Import failed to parse Date: " + line);
-               bOk = false;              
+               _results.Add("ERROR-" + _line + "\r\n" + _sErr);
+               Fire_Status("_sErr");
+
             }
-            if (splits[4] != "" && decimal.TryParse(splits[4], out amount) == false)
+            else if (bankData.Contains(t) == false)
             {
-               MessageBox.Show("Line Import failed to parse amount.. Skipping this line:\r\n " + line);                  
-               bOk = false;              
+               _results.Add("ADDED-" + t.ToStringPretty());
+               Fire_Status("Adding Transaction:  " + t.ToString());
+               bankData.Add(t);
             }
-               
-            if (bOk)
+            else
             {
-               if (splits[2] != "")
-               {
-                  t.Description = splits[2] + " - " + splits[3];
-               }
-               else
-               {
-                  t.Description = splits[3];
-               }
-               t.Amount = amount;
-               t.SetDate(date);
-               t.Cleared = false;
-               bankDataNew.Add(t);
+               _results.Add("SKIP--" + t.ToStringPretty());
+               Fire_Status("Skipping Existing Transaction" + t.ToString());
             }
-            line = sr.ReadLine();
+            System.Threading.Thread.Sleep(50);
          }
-         sr.Close();
-         sr = null;
          
-         // Go through each transaction of bankDataNew
-         // Look for it in bankData
-         // If it doesn't exist, add it to a list of items to be added
-         // If it exists, don't add it, Delete it.
-         Fire_Status("Searching New Statement data for Duplicates");
-         List<Transaction> itemsToAdd = new List<Transaction>();
-         foreach (Transaction tNew in bankDataNew)
-         {
-            // Uses Equals() method inside Transaction class
-            if (bankData.IndexOf(tNew) < 0)
-            {
-               Fire_Status("Adding New Data:  " + tNew.ToString());
-               System.Threading.Thread.Sleep(10);
-               itemsToAdd.Add(tNew);
-            }
-         }
-         if (itemsToAdd.Count > 0)
-         {
-            bankData.AddRange(itemsToAdd);
-         }
-         bankDataNew.Clear(); // Remove all new items, they have been added...
+         //////////////////////////////////////////////////////
+         // Rename import file to show that it has been imported
+         //////////////////////////////////////////////////////
          File.Copy(csvFile, "Imported_" + DateTime.Now.ToString("yyyyMMdd_hhmmss") + ".csv");
          File.Delete(csvFile);
 
 
+         //////////////////////////////////////////////////////
          // Delete backup data files older than 31 days old
+         //////////////////////////////////////////////////////
          Fire_Status("Deleting old Imported Bank Data (older than 30 days)");
          string path = Path.GetDirectoryName(csvFile);
          DirectoryInfo di = new DirectoryInfo(path);
@@ -528,7 +537,10 @@ namespace CV_Checking
                f.Delete();
             }
          }
-         Fire_Status("Statement Data Import Completed.  Added " + itemsToAdd.Count.ToString() + " Transactions");
+         Fire_Status("Statement Data Import Completed");
+
+         File.WriteAllLines("ImportResults.txt", _results.ToArray());
+         System.Diagnostics.Process.Start("notepad.exe", "ImportResults.txt");
       }
       #endregion IMPORT
 
@@ -542,7 +554,7 @@ namespace CV_Checking
             {
                if (bankData[i].Cleared && !bankData[i].Flagged)
                {
-                  if (bankData[i].Date() < _dtDelete)
+                  if (bankData[i].Date < _dtDelete)
                   {
                      bankData.RemoveAt(i);
                      _count++;
