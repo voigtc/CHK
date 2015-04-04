@@ -69,6 +69,7 @@ namespace CV_Checking
       {
          if (li != null && !bShowAmounts)
          {
+            li.SubItems[0].Text = "??????";
             li.SubItems[1].Text = "------";
          } 
       }
@@ -80,7 +81,8 @@ namespace CV_Checking
             string amt = ((Bucket)li.Tag).Amount.ToString("F2").Replace("-","");
             if (li.SubItems[1].Text != amt)
             {
-			      li.SubItems[1].Text = amt;
+			      li.SubItems[0].Text = ((Bucket)li.Tag).Description;
+               li.SubItems[1].Text = amt;
 			   }
          }
       }
@@ -135,6 +137,7 @@ namespace CV_Checking
 			{
             if (li != null && !bShowAmounts)
             {
+               li.SubItems[0].Text = "??????";
                li.SubItems[1].Text = "------";
             }
             btnIncrement.Hide();
@@ -146,9 +149,11 @@ namespace CV_Checking
 			   // Hide old items amount
 			   if (li != null && !bShowAmounts)
 			   {
-			      li.SubItems[1].Text = "------";
+			      li.SubItems[0].Text = "??????";
+               li.SubItems[1].Text = "------";
 			   }
 			   li = newLvi;
+            li.SubItems[0].Text = ((Bucket)li.Tag).Description;
 			   li.SubItems[1].Text = ((Bucket)li.Tag).Amount.ToString("F2").Replace("-","");
 			   X = e.X;
 			   Y = e.Y;
@@ -207,10 +212,12 @@ namespace CV_Checking
          {
             if (bShow)
             {
+               lvi.SubItems[0].Text = ((Bucket)lvi.Tag).Description;
                lvi.SubItems[1].Text = ((Bucket)lvi.Tag).Amount.ToString("F2").Replace("-","");
             }
             else
             {
+               lvi.SubItems[0].Text = "??????";
                lvi.SubItems[1].Text = "------";
             }
          }
@@ -225,9 +232,10 @@ namespace CV_Checking
             if (t.GetType() == typeof(Bucket))
             {
                Bucket b = (Bucket)t;
-               ListViewItem lvi = new ListViewItem(new string[] {b.Description, "------"});
+               ListViewItem lvi = new ListViewItem(new string[] {"??????", "------"});
                if (bShowAmounts == true)
                {
+                  lvi.SubItems[0].Text = ((Bucket)li.Tag).Description;
                   lvi.SubItems[1].Text = ((Bucket)li.Tag).Amount.ToString("F2").Replace("-","");
                }
                lvi.Tag = b;
