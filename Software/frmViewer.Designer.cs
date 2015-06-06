@@ -62,7 +62,6 @@
          this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
          this.splitContainer1.IsSplitterFixed = true;
          this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-         this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
          this.splitContainer1.Name = "splitContainer1";
          this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
          // 
@@ -83,18 +82,16 @@
          this.splitContainer1.Panel2.Controls.Add(this.btnToggleFlagged);
          this.splitContainer1.Panel2.Controls.Add(this.btnToggleCleared);
          this.splitContainer1.Panel2.Controls.Add(this.lvTrans);
-         this.splitContainer1.Size = new System.Drawing.Size(1171, 569);
+         this.splitContainer1.Size = new System.Drawing.Size(878, 462);
          this.splitContainer1.SplitterDistance = 29;
-         this.splitContainer1.SplitterWidth = 5;
          this.splitContainer1.TabIndex = 0;
          // 
          // btnFindNext
          // 
          this.btnFindNext.Image = global::CV_Checking.Properties.Resources.FindNextHS;
-         this.btnFindNext.Location = new System.Drawing.Point(456, 4);
-         this.btnFindNext.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.btnFindNext.Location = new System.Drawing.Point(342, 3);
          this.btnFindNext.Name = "btnFindNext";
-         this.btnFindNext.Size = new System.Drawing.Size(36, 30);
+         this.btnFindNext.Size = new System.Drawing.Size(27, 24);
          this.btnFindNext.TabIndex = 10;
          this.toolTip1.SetToolTip(this.btnFindNext, "Find next Item");
          this.btnFindNext.UseVisualStyleBackColor = true;
@@ -103,10 +100,9 @@
          // btnFind
          // 
          this.btnFind.Image = global::CV_Checking.Properties.Resources.FindHS;
-         this.btnFind.Location = new System.Drawing.Point(412, 4);
-         this.btnFind.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.btnFind.Location = new System.Drawing.Point(309, 3);
          this.btnFind.Name = "btnFind";
-         this.btnFind.Size = new System.Drawing.Size(36, 30);
+         this.btnFind.Size = new System.Drawing.Size(27, 24);
          this.btnFind.TabIndex = 9;
          this.toolTip1.SetToolTip(this.btnFind, "Find an item by searching in description");
          this.btnFind.UseVisualStyleBackColor = true;
@@ -119,10 +115,9 @@
          this.chkShowUncleared.Checked = true;
          this.chkShowUncleared.CheckState = System.Windows.Forms.CheckState.Checked;
          this.chkShowUncleared.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.chkShowUncleared.Location = new System.Drawing.Point(853, 7);
-         this.chkShowUncleared.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.chkShowUncleared.Location = new System.Drawing.Point(631, 6);
          this.chkShowUncleared.Name = "chkShowUncleared";
-         this.chkShowUncleared.Size = new System.Drawing.Size(147, 21);
+         this.chkShowUncleared.Size = new System.Drawing.Size(119, 17);
          this.chkShowUncleared.TabIndex = 1;
          this.chkShowUncleared.Text = "Show Uncleared";
          this.toolTip1.SetToolTip(this.chkShowUncleared, "Check to show Uncleared Transactions");
@@ -135,10 +130,9 @@
          this.chkShowCleared.AutoSize = true;
          this.chkShowCleared.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
          this.chkShowCleared.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.chkShowCleared.Location = new System.Drawing.Point(704, 7);
-         this.chkShowCleared.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.chkShowCleared.Location = new System.Drawing.Point(521, 6);
          this.chkShowCleared.Name = "chkShowCleared";
-         this.chkShowCleared.Size = new System.Drawing.Size(129, 21);
+         this.chkShowCleared.Size = new System.Drawing.Size(104, 17);
          this.chkShowCleared.TabIndex = 0;
          this.chkShowCleared.Text = "Show Cleared";
          this.toolTip1.SetToolTip(this.chkShowCleared, "Check to Show Cleared Transactions");
@@ -150,11 +144,10 @@
          this.dtEnd.CalendarMonthBackground = System.Drawing.Color.LightSteelBlue;
          this.dtEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.dtEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-         this.dtEnd.Location = new System.Drawing.Point(276, 6);
-         this.dtEnd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.dtEnd.Location = new System.Drawing.Point(207, 5);
          this.dtEnd.MinDate = new System.DateTime(2010, 1, 1, 0, 0, 0, 0);
          this.dtEnd.Name = "dtEnd";
-         this.dtEnd.Size = new System.Drawing.Size(127, 23);
+         this.dtEnd.Size = new System.Drawing.Size(96, 20);
          this.dtEnd.TabIndex = 7;
          this.dtEnd.ValueChanged += new System.EventHandler(this.dtStart_ValueChanged);
          // 
@@ -166,10 +159,9 @@
          this.chkShowFlagged.Checked = true;
          this.chkShowFlagged.CheckState = System.Windows.Forms.CheckState.Checked;
          this.chkShowFlagged.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.chkShowFlagged.Location = new System.Drawing.Point(1036, 7);
-         this.chkShowFlagged.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.chkShowFlagged.Location = new System.Drawing.Point(770, 6);
          this.chkShowFlagged.Name = "chkShowFlagged";
-         this.chkShowFlagged.Size = new System.Drawing.Size(131, 21);
+         this.chkShowFlagged.Size = new System.Drawing.Size(106, 17);
          this.chkShowFlagged.TabIndex = 2;
          this.chkShowFlagged.Text = "Show Flagged";
          this.chkShowFlagged.UseVisualStyleBackColor = true;
@@ -180,11 +172,10 @@
          this.dtStart.CalendarMonthBackground = System.Drawing.Color.LightSteelBlue;
          this.dtStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.dtStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-         this.dtStart.Location = new System.Drawing.Point(143, 6);
-         this.dtStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.dtStart.Location = new System.Drawing.Point(107, 5);
          this.dtStart.MinDate = new System.DateTime(2010, 1, 1, 0, 0, 0, 0);
          this.dtStart.Name = "dtStart";
-         this.dtStart.Size = new System.Drawing.Size(124, 23);
+         this.dtStart.Size = new System.Drawing.Size(94, 20);
          this.dtStart.TabIndex = 6;
          this.dtStart.ValueChanged += new System.EventHandler(this.dtStart_ValueChanged);
          // 
@@ -193,10 +184,9 @@
          this.chkDateRange.AutoSize = true;
          this.chkDateRange.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
          this.chkDateRange.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.chkDateRange.Location = new System.Drawing.Point(4, 10);
-         this.chkDateRange.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.chkDateRange.Location = new System.Drawing.Point(3, 8);
          this.chkDateRange.Name = "chkDateRange";
-         this.chkDateRange.Size = new System.Drawing.Size(120, 21);
+         this.chkDateRange.Size = new System.Drawing.Size(98, 17);
          this.chkDateRange.TabIndex = 8;
          this.chkDateRange.Text = "Show Range";
          this.toolTip1.SetToolTip(this.chkDateRange, "Check to Enagle Date Pickers to Right (Filters data by Date)");
@@ -206,10 +196,9 @@
          // btnToggleFlagged
          // 
          this.btnToggleFlagged.Image = ((System.Drawing.Image)(resources.GetObject("btnToggleFlagged.Image")));
-         this.btnToggleFlagged.Location = new System.Drawing.Point(659, 50);
-         this.btnToggleFlagged.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.btnToggleFlagged.Location = new System.Drawing.Point(494, 41);
          this.btnToggleFlagged.Name = "btnToggleFlagged";
-         this.btnToggleFlagged.Size = new System.Drawing.Size(35, 32);
+         this.btnToggleFlagged.Size = new System.Drawing.Size(26, 26);
          this.btnToggleFlagged.TabIndex = 2;
          this.toolTip1.SetToolTip(this.btnToggleFlagged, "Toggles the current item\'s Cleared Flag");
          this.btnToggleFlagged.UseVisualStyleBackColor = true;
@@ -219,10 +208,9 @@
          // btnToggleCleared
          // 
          this.btnToggleCleared.Image = ((System.Drawing.Image)(resources.GetObject("btnToggleCleared.Image")));
-         this.btnToggleCleared.Location = new System.Drawing.Point(723, 50);
-         this.btnToggleCleared.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.btnToggleCleared.Location = new System.Drawing.Point(542, 41);
          this.btnToggleCleared.Name = "btnToggleCleared";
-         this.btnToggleCleared.Size = new System.Drawing.Size(35, 32);
+         this.btnToggleCleared.Size = new System.Drawing.Size(26, 26);
          this.btnToggleCleared.TabIndex = 1;
          this.toolTip1.SetToolTip(this.btnToggleCleared, "Toggles the Current Item\'s Flagged Flag");
          this.btnToggleCleared.UseVisualStyleBackColor = true;
@@ -242,10 +230,9 @@
          this.lvTrans.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.lvTrans.GridLines = true;
          this.lvTrans.Location = new System.Drawing.Point(0, 0);
-         this.lvTrans.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
          this.lvTrans.MultiSelect = false;
          this.lvTrans.Name = "lvTrans";
-         this.lvTrans.Size = new System.Drawing.Size(1171, 535);
+         this.lvTrans.Size = new System.Drawing.Size(878, 429);
          this.lvTrans.SmallImageList = this.imageList1;
          this.lvTrans.TabIndex = 0;
          this.lvTrans.UseCompatibleStateImageBehavior = false;
@@ -298,13 +285,12 @@
          // 
          // frmViewer
          // 
-         this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+         this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-         this.ClientSize = new System.Drawing.Size(1171, 569);
+         this.ClientSize = new System.Drawing.Size(878, 462);
          this.Controls.Add(this.splitContainer1);
          this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
          this.KeyPreview = true;
-         this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
          this.Name = "frmViewer";
          this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
          this.Text = "Transactions";

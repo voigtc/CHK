@@ -40,6 +40,7 @@ namespace CV_Checking
          else
          {
             frm.txtPassword.Text = "sw3E3ti3";
+            frm.ShowDialog();
          }
 			
 			data = Register.Load(frm.txtPassword.Text);

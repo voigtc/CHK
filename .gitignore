@@ -187,6 +187,8 @@ $RECYCLE.BIN/
 .DS_Store
 *.csv
 *.exe.config
+*.ods
+*.xlsx
 ImportResults.txt
 Software/app.config
 CV_Checking.exe

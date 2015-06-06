@@ -6,6 +6,11 @@ using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 
+[assembly: AssemblyVersion(    "3.1.*")]  // <major version>.<minor version>.<build number>.<revision> 
+                                          // 
+                                          // The default revision number is the number of seconds since midnight local time (without taking into account time zone adjustments for daylight saving time), divided by 2.
+[assembly: AssemblyFileVersion("3.1")]    // For Display purposes only.  This one can be 3.1.0.0
+
 namespace CV_Checking
 {
    partial class frmAbout : Form
@@ -13,9 +18,9 @@ namespace CV_Checking
       public frmAbout()
       {
          InitializeComponent();
-         this.Text = String.Format("About {0}", AssemblyTitle);
+         this.Text = String.Format("About {0}, Build {1}", AssemblyTitle, AssemblyVersion);  
          this.labelProductName.Text = AssemblyProduct;
-         this.labelVersion.Text = String.Format("Version {0}", AssemblyVersion);
+         this.labelVersion.Text = String.Format("Version {0}", Application.ProductVersion);
          this.labelCopyright.Text = AssemblyCopyright;
          this.labelCompanyName.Text = AssemblyCompany;
          this.textBoxDescription.Text = AssemblyDescription;
