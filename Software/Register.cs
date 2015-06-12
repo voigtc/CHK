@@ -579,15 +579,15 @@ namespace CV_Checking
          // If a match is found, Prompt user to clear both items
          List<Transaction> dataUncleared     = UnclearedTransactions(data);
          List<Transaction> bankDataUncleared = UnclearedTransactions(bankData);
-         for (int i = 0; i < dataUncleared.Count; i++)
+         foreach (Transaction t in dataUncleared)
          {
-            if (dataUncleared[i].Flagged)
+            if ((t.GetType() == typeof(Bucket)) || t.Flagged)
             {
-               continue;   // don't do anything with flagged items
+               continue;   // Skip Buckets and Flagged items.
             }
             else
             {
-               List<Transaction> matchList = AmountEqual(bankDataUncleared, dataUncleared[i].Amount);
+               List<Transaction> matchList = AmountEqual(bankDataUncleared, t.Amount);
                if (matchList.Count == 1)
                {
                   string descStatement = matchList[0].Description.Replace("ATM WITHDRAWAL      STR PD - ", "");
@@ -596,12 +596,12 @@ namespace CV_Checking
                   descStatement = descStatement.Trim();
                   DialogResult res;
                   res = MessageBox.Show("MATCH FOUND!  DO YOU WANT TO CLEAR BOTH?\r\n\r\n" +
-                                        "REGISTER:   \t" + dataUncleared[i].Amount.ToString("F2") + " \t" + dataUncleared[i].Description + "\r\n" +
+                                        "REGISTER:   \t" + t.Amount.ToString("F2") + " \t" + t.Description + "\r\n" +
                                         "STATEMENT:  \t" + matchList[0].Amount.ToString("F2") + " \t" + descStatement, "Verify Item to Clear",
                                         MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
                   if (res == DialogResult.Yes)
                   {
-                     dataUncleared[i].Cleared = true;
+                     t.Cleared = true;
                      matchList[0].Cleared     = true;
                      if (_BalanceItemsCleared != null)
                      {
