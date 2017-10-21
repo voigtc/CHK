@@ -58,7 +58,7 @@
          this.txtDescription.BackColor = System.Drawing.SystemColors.ControlLightLight;
          this.txtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.txtDescription.Location = new System.Drawing.Point(157, 48);
-         this.txtDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.txtDescription.Margin = new System.Windows.Forms.Padding(4);
          this.txtDescription.Name = "txtDescription";
          this.txtDescription.Size = new System.Drawing.Size(404, 30);
          this.txtDescription.TabIndex = 2;
@@ -78,7 +78,7 @@
          // 
          this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.btnCancel.Location = new System.Drawing.Point(397, 87);
-         this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
          this.btnCancel.Name = "btnCancel";
          this.btnCancel.Size = new System.Drawing.Size(92, 42);
          this.btnCancel.TabIndex = 4;
@@ -91,7 +91,7 @@
          this.btnOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.btnOK.Image = ((System.Drawing.Image)(resources.GetObject("btnOK.Image")));
          this.btnOK.Location = new System.Drawing.Point(504, 87);
-         this.btnOK.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.btnOK.Margin = new System.Windows.Forms.Padding(4);
          this.btnOK.Name = "btnOK";
          this.btnOK.Size = new System.Drawing.Size(59, 42);
          this.btnOK.TabIndex = 3;
@@ -119,7 +119,7 @@
             0,
             0});
          this.udAmount.Location = new System.Drawing.Point(157, 9);
-         this.udAmount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.udAmount.Margin = new System.Windows.Forms.Padding(4);
          this.udAmount.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -140,7 +140,7 @@
             0,
             0});
          this.udIncrement.Location = new System.Drawing.Point(449, 9);
-         this.udIncrement.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.udIncrement.Margin = new System.Windows.Forms.Padding(4);
          this.udIncrement.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -156,7 +156,7 @@
          this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
          this.btnDelete.Location = new System.Drawing.Point(327, 87);
-         this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
          this.btnDelete.Name = "btnDelete";
          this.btnDelete.Size = new System.Drawing.Size(59, 42);
          this.btnDelete.TabIndex = 29;
@@ -166,8 +166,8 @@
          // 
          // frmBucket
          // 
-         this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-         this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+         this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+         this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
          this.ClientSize = new System.Drawing.Size(575, 139);
          this.ControlBox = false;
          this.Controls.Add(this.btnDelete);
@@ -182,7 +182,7 @@
          this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
          this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
          this.KeyPreview = true;
-         this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.Margin = new System.Windows.Forms.Padding(4);
          this.Name = "frmBucket";
          this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
          this.Text = "Bucket";

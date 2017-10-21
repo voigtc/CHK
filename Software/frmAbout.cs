@@ -6,10 +6,10 @@ using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 
-[assembly: AssemblyVersion(    "3.2.*")]  // <major version>.<minor version>.<build number>.<revision> 
+[assembly: AssemblyVersion(    "3.3.*")]  // <major version>.<minor version>.<build number>.<revision> 
                                           // 
                                           // The default revision number is the number of seconds since midnight local time (without taking into account time zone adjustments for daylight saving time), divided by 2.
-[assembly: AssemblyFileVersion("3.2")]    // For Display purposes only.  This one can be 3.1.0.0
+[assembly: AssemblyFileVersion("3.3")]    // For Display purposes only.  This one can be 3.1.0.0
 
 namespace CV_Checking
 {

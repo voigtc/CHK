@@ -39,7 +39,7 @@
          // dtPicker
          // 
          this.dtPicker.Location = new System.Drawing.Point(16, 47);
-         this.dtPicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.dtPicker.Margin = new System.Windows.Forms.Padding(4);
          this.dtPicker.Name = "dtPicker";
          this.dtPicker.Size = new System.Drawing.Size(345, 22);
          this.dtPicker.TabIndex = 0;
@@ -51,7 +51,7 @@
          this.btnExport.DialogResult = System.Windows.Forms.DialogResult.OK;
          this.btnExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.btnExport.Location = new System.Drawing.Point(204, 79);
-         this.btnExport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.btnExport.Margin = new System.Windows.Forms.Padding(4);
          this.btnExport.Name = "btnExport";
          this.btnExport.Size = new System.Drawing.Size(159, 42);
          this.btnExport.TabIndex = 2;
@@ -64,7 +64,7 @@
          this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
          this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.btnCancel.Location = new System.Drawing.Point(16, 79);
-         this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
          this.btnCancel.Name = "btnCancel";
          this.btnCancel.Size = new System.Drawing.Size(159, 42);
          this.btnCancel.TabIndex = 1;
@@ -74,7 +74,7 @@
          // txtFilename
          // 
          this.txtFilename.Location = new System.Drawing.Point(16, 15);
-         this.txtFilename.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.txtFilename.Margin = new System.Windows.Forms.Padding(4);
          this.txtFilename.Name = "txtFilename";
          this.txtFilename.Size = new System.Drawing.Size(345, 22);
          this.txtFilename.TabIndex = 3;
@@ -84,8 +84,8 @@
          // 
          // frmDateTimePicker
          // 
-         this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-         this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+         this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+         this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
          this.ClientSize = new System.Drawing.Size(379, 134);
          this.ControlBox = false;
          this.Controls.Add(this.txtFilename);
@@ -93,7 +93,7 @@
          this.Controls.Add(this.btnExport);
          this.Controls.Add(this.dtPicker);
          this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-         this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.Margin = new System.Windows.Forms.Padding(4);
          this.Name = "frmDateTimePicker";
          this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
          this.Text = "Select Date to Export up to";
