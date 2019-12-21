@@ -48,7 +48,7 @@ namespace CV_Checking
       private void frmTransactions_Load(object sender, EventArgs e)
       {
          // Position form for optimal viewing
-         this.Width = Screen.PrimaryScreen.Bounds.Width;
+         this.Width = Screen.PrimaryScreen.Bounds.Width/2;
          this.Height = Screen.PrimaryScreen.Bounds.Height/2;
          this.Left = 0;
          this.Top = 0;

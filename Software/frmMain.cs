@@ -266,7 +266,7 @@ namespace CV_Checking
       private void btnBucketAdd_Click(object sender, EventArgs e)
       {
          frmBucket frm = new frmBucket(new Bucket());
-         DialogResult res = frm.ShowDialog();
+         DialogResult res = frm.ShowDialog(this);
          if (res == DialogResult.OK)
          {
             data.Data.Add(frm.bucket);
