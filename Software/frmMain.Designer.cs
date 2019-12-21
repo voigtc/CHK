@@ -102,9 +102,7 @@
          this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
          this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
          this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
-         this.splitContainer1.IsSplitterFixed = true;
          this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-         this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
          this.splitContainer1.Name = "splitContainer1";
          this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
          // 
@@ -131,9 +129,8 @@
          this.splitContainer1.Panel2.Controls.Add(this.btnDebitDining);
          this.splitContainer1.Panel2.Controls.Add(this.btnDebitFood);
          this.splitContainer1.Panel2.Controls.Add(this.btnViewData);
-         this.splitContainer1.Size = new System.Drawing.Size(980, 386);
-         this.splitContainer1.SplitterDistance = 268;
-         this.splitContainer1.SplitterWidth = 5;
+         this.splitContainer1.Size = new System.Drawing.Size(786, 314);
+         this.splitContainer1.SplitterDistance = 223;
          this.splitContainer1.TabIndex = 1;
          // 
          // splitContainer2
@@ -141,9 +138,7 @@
          this.splitContainer2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
          this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
          this.splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-         this.splitContainer2.IsSplitterFixed = true;
          this.splitContainer2.Location = new System.Drawing.Point(0, 0);
-         this.splitContainer2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
          this.splitContainer2.Name = "splitContainer2";
          // 
          // splitContainer2.Panel1
@@ -153,9 +148,8 @@
          // splitContainer2.Panel2
          // 
          this.splitContainer2.Panel2.Controls.Add(this.splitContainer3);
-         this.splitContainer2.Size = new System.Drawing.Size(980, 268);
+         this.splitContainer2.Size = new System.Drawing.Size(786, 223);
          this.splitContainer2.SplitterDistance = 286;
-         this.splitContainer2.SplitterWidth = 5;
          this.splitContainer2.TabIndex = 1;
          // 
          // splitContainer4
@@ -165,7 +159,6 @@
          this.splitContainer4.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
          this.splitContainer4.IsSplitterFixed = true;
          this.splitContainer4.Location = new System.Drawing.Point(0, 0);
-         this.splitContainer4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
          this.splitContainer4.Name = "splitContainer4";
          this.splitContainer4.Orientation = System.Windows.Forms.Orientation.Horizontal;
          // 
@@ -189,9 +182,8 @@
          this.splitContainer4.Panel2.Controls.Add(this.lblDiscrepancies);
          this.splitContainer4.Panel2.Controls.Add(this.lblBalance);
          this.splitContainer4.Panel2.Controls.Add(this.lblBankBalance);
-         this.splitContainer4.Size = new System.Drawing.Size(286, 268);
+         this.splitContainer4.Size = new System.Drawing.Size(286, 223);
          this.splitContainer4.SplitterDistance = 35;
-         this.splitContainer4.SplitterWidth = 5;
          this.splitContainer4.TabIndex = 1;
          // 
          // lblSummary
@@ -199,7 +191,6 @@
          this.lblSummary.Dock = System.Windows.Forms.DockStyle.Fill;
          this.lblSummary.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.lblSummary.Location = new System.Drawing.Point(0, 0);
-         this.lblSummary.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
          this.lblSummary.Name = "lblSummary";
          this.lblSummary.Size = new System.Drawing.Size(282, 31);
          this.lblSummary.TabIndex = 1;
@@ -213,10 +204,9 @@
          this.txtTotalUncleared.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.txtTotalUncleared.BackColor = System.Drawing.SystemColors.Control;
          this.txtTotalUncleared.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-         this.txtTotalUncleared.Location = new System.Drawing.Point(151, 101);
-         this.txtTotalUncleared.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.txtTotalUncleared.Location = new System.Drawing.Point(177, 81);
          this.txtTotalUncleared.Name = "txtTotalUncleared";
-         this.txtTotalUncleared.Size = new System.Drawing.Size(130, 22);
+         this.txtTotalUncleared.Size = new System.Drawing.Size(104, 20);
          this.txtTotalUncleared.TabIndex = 25;
          this.txtTotalUncleared.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
          this.txtTotalUncleared.Visible = false;
@@ -226,10 +216,9 @@
          this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.label4.AutoSize = true;
          this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.label4.Location = new System.Drawing.Point(49, 100);
-         this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+         this.label4.Location = new System.Drawing.Point(95, 80);
          this.label4.Name = "label4";
-         this.label4.Size = new System.Drawing.Size(94, 20);
+         this.label4.Size = new System.Drawing.Size(82, 17);
          this.label4.TabIndex = 24;
          this.label4.Text = "Uncleared";
          // 
@@ -238,10 +227,9 @@
          this.txtNumTransactions.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.txtNumTransactions.BackColor = System.Drawing.SystemColors.Control;
          this.txtNumTransactions.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-         this.txtNumTransactions.Location = new System.Drawing.Point(152, 191);
-         this.txtNumTransactions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.txtNumTransactions.Location = new System.Drawing.Point(178, 153);
          this.txtNumTransactions.Name = "txtNumTransactions";
-         this.txtNumTransactions.Size = new System.Drawing.Size(130, 22);
+         this.txtNumTransactions.Size = new System.Drawing.Size(104, 20);
          this.txtNumTransactions.TabIndex = 23;
          this.txtNumTransactions.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
          this.txtNumTransactions.Visible = false;
@@ -251,10 +239,9 @@
          this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.label3.AutoSize = true;
          this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.label3.Location = new System.Drawing.Point(70, 190);
-         this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+         this.label3.Location = new System.Drawing.Point(112, 152);
          this.label3.Name = "label3";
-         this.label3.Size = new System.Drawing.Size(73, 20);
+         this.label3.Size = new System.Drawing.Size(64, 17);
          this.label3.TabIndex = 22;
          this.label3.Text = "# Trans";
          // 
@@ -263,10 +250,9 @@
          this.txtTotalCredits.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.txtTotalCredits.BackColor = System.Drawing.SystemColors.Control;
          this.txtTotalCredits.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-         this.txtTotalCredits.Location = new System.Drawing.Point(152, 161);
-         this.txtTotalCredits.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.txtTotalCredits.Location = new System.Drawing.Point(178, 129);
          this.txtTotalCredits.Name = "txtTotalCredits";
-         this.txtTotalCredits.Size = new System.Drawing.Size(130, 22);
+         this.txtTotalCredits.Size = new System.Drawing.Size(104, 20);
          this.txtTotalCredits.TabIndex = 21;
          this.txtTotalCredits.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
          this.txtTotalCredits.Visible = false;
@@ -276,10 +262,9 @@
          this.txtTotalDebits.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.txtTotalDebits.BackColor = System.Drawing.SystemColors.Control;
          this.txtTotalDebits.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-         this.txtTotalDebits.Location = new System.Drawing.Point(152, 131);
-         this.txtTotalDebits.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.txtTotalDebits.Location = new System.Drawing.Point(178, 105);
          this.txtTotalDebits.Name = "txtTotalDebits";
-         this.txtTotalDebits.Size = new System.Drawing.Size(130, 22);
+         this.txtTotalDebits.Size = new System.Drawing.Size(104, 20);
          this.txtTotalDebits.TabIndex = 20;
          this.txtTotalDebits.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
          this.txtTotalDebits.Visible = false;
@@ -290,10 +275,9 @@
          this.txtDiscrepancies.BackColor = System.Drawing.SystemColors.Control;
          this.txtDiscrepancies.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
          this.txtDiscrepancies.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.txtDiscrepancies.Location = new System.Drawing.Point(152, 71);
-         this.txtDiscrepancies.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.txtDiscrepancies.Location = new System.Drawing.Point(178, 57);
          this.txtDiscrepancies.Name = "txtDiscrepancies";
-         this.txtDiscrepancies.Size = new System.Drawing.Size(130, 22);
+         this.txtDiscrepancies.Size = new System.Drawing.Size(104, 19);
          this.txtDiscrepancies.TabIndex = 18;
          this.txtDiscrepancies.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
          this.txtDiscrepancies.Visible = false;
@@ -304,10 +288,9 @@
          this.txtBankBalance.BackColor = System.Drawing.SystemColors.Control;
          this.txtBankBalance.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
          this.txtBankBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.txtBankBalance.Location = new System.Drawing.Point(152, 42);
-         this.txtBankBalance.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.txtBankBalance.Location = new System.Drawing.Point(178, 34);
          this.txtBankBalance.Name = "txtBankBalance";
-         this.txtBankBalance.Size = new System.Drawing.Size(130, 22);
+         this.txtBankBalance.Size = new System.Drawing.Size(104, 19);
          this.txtBankBalance.TabIndex = 17;
          this.txtBankBalance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
          this.txtBankBalance.Visible = false;
@@ -318,10 +301,9 @@
          this.txtBalance.BackColor = System.Drawing.SystemColors.Control;
          this.txtBalance.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
          this.txtBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.txtBalance.Location = new System.Drawing.Point(152, 4);
-         this.txtBalance.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.txtBalance.Location = new System.Drawing.Point(178, 3);
          this.txtBalance.Name = "txtBalance";
-         this.txtBalance.Size = new System.Drawing.Size(130, 30);
+         this.txtBalance.Size = new System.Drawing.Size(104, 26);
          this.txtBalance.TabIndex = 16;
          this.txtBalance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
          this.txtBalance.Visible = false;
@@ -331,10 +313,9 @@
          this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.label2.AutoSize = true;
          this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.label2.Location = new System.Drawing.Point(32, 130);
-         this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+         this.label2.Location = new System.Drawing.Point(82, 104);
          this.label2.Name = "label2";
-         this.label2.Size = new System.Drawing.Size(112, 20);
+         this.label2.Size = new System.Drawing.Size(96, 17);
          this.label2.TabIndex = 15;
          this.label2.Text = "Total Debits";
          // 
@@ -343,10 +324,9 @@
          this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.label1.AutoSize = true;
          this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.label1.Location = new System.Drawing.Point(25, 160);
-         this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+         this.label1.Location = new System.Drawing.Point(76, 128);
          this.label1.Name = "label1";
-         this.label1.Size = new System.Drawing.Size(118, 20);
+         this.label1.Size = new System.Drawing.Size(101, 17);
          this.label1.TabIndex = 14;
          this.label1.Text = "Total Credits";
          // 
@@ -355,10 +335,9 @@
          this.lblDiscrepancies.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.lblDiscrepancies.AutoSize = true;
          this.lblDiscrepancies.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.lblDiscrepancies.Location = new System.Drawing.Point(14, 71);
-         this.lblDiscrepancies.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+         this.lblDiscrepancies.Location = new System.Drawing.Point(67, 57);
          this.lblDiscrepancies.Name = "lblDiscrepancies";
-         this.lblDiscrepancies.Size = new System.Drawing.Size(130, 20);
+         this.lblDiscrepancies.Size = new System.Drawing.Size(110, 17);
          this.lblDiscrepancies.TabIndex = 4;
          this.lblDiscrepancies.Text = "Discrepancies";
          // 
@@ -367,10 +346,9 @@
          this.lblBalance.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.lblBalance.AutoSize = true;
          this.lblBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.lblBalance.Location = new System.Drawing.Point(54, 6);
-         this.lblBalance.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+         this.lblBalance.Location = new System.Drawing.Point(99, 5);
          this.lblBalance.Name = "lblBalance";
-         this.lblBalance.Size = new System.Drawing.Size(90, 25);
+         this.lblBalance.Size = new System.Drawing.Size(74, 20);
          this.lblBalance.TabIndex = 3;
          this.lblBalance.Text = "Balance";
          // 
@@ -379,10 +357,9 @@
          this.lblBankBalance.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.lblBankBalance.AutoSize = true;
          this.lblBankBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.lblBankBalance.Location = new System.Drawing.Point(92, 41);
-         this.lblBankBalance.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+         this.lblBankBalance.Location = new System.Drawing.Point(130, 33);
          this.lblBankBalance.Name = "lblBankBalance";
-         this.lblBankBalance.Size = new System.Drawing.Size(51, 20);
+         this.lblBankBalance.Size = new System.Drawing.Size(44, 17);
          this.lblBankBalance.TabIndex = 2;
          this.lblBankBalance.Text = "Bank";
          // 
@@ -393,7 +370,6 @@
          this.splitContainer3.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
          this.splitContainer3.IsSplitterFixed = true;
          this.splitContainer3.Location = new System.Drawing.Point(0, 0);
-         this.splitContainer3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
          this.splitContainer3.Name = "splitContainer3";
          this.splitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal;
          // 
@@ -405,9 +381,8 @@
          // splitContainer3.Panel2
          // 
          this.splitContainer3.Panel2.Controls.Add(this.lvBuckets);
-         this.splitContainer3.Size = new System.Drawing.Size(689, 268);
+         this.splitContainer3.Size = new System.Drawing.Size(496, 223);
          this.splitContainer3.SplitterDistance = 35;
-         this.splitContainer3.SplitterWidth = 5;
          this.splitContainer3.TabIndex = 1;
          // 
          // btnBucketAdd
@@ -415,10 +390,9 @@
          this.btnBucketAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.btnBucketAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.btnBucketAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnBucketAdd.Image")));
-         this.btnBucketAdd.Location = new System.Drawing.Point(651, -1);
-         this.btnBucketAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.btnBucketAdd.Location = new System.Drawing.Point(465, -1);
          this.btnBucketAdd.Name = "btnBucketAdd";
-         this.btnBucketAdd.Size = new System.Drawing.Size(32, 32);
+         this.btnBucketAdd.Size = new System.Drawing.Size(26, 26);
          this.btnBucketAdd.TabIndex = 20;
          this.toolTip1.SetToolTip(this.btnBucketAdd, "Adds a new Bucket to the Bucket List");
          this.btnBucketAdd.UseVisualStyleBackColor = true;
@@ -429,9 +403,8 @@
          this.lblBuckets.Dock = System.Windows.Forms.DockStyle.Fill;
          this.lblBuckets.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.lblBuckets.Location = new System.Drawing.Point(0, 0);
-         this.lblBuckets.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
          this.lblBuckets.Name = "lblBuckets";
-         this.lblBuckets.Size = new System.Drawing.Size(685, 31);
+         this.lblBuckets.Size = new System.Drawing.Size(492, 31);
          this.lblBuckets.TabIndex = 0;
          this.lblBuckets.Text = "Buckets";
          this.lblBuckets.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -446,9 +419,8 @@
          this.lvBuckets.FullRowSelect = true;
          this.lvBuckets.GridLines = true;
          this.lvBuckets.Location = new System.Drawing.Point(0, 0);
-         this.lvBuckets.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
          this.lvBuckets.Name = "lvBuckets";
-         this.lvBuckets.Size = new System.Drawing.Size(685, 224);
+         this.lvBuckets.Size = new System.Drawing.Size(492, 180);
          this.lvBuckets.TabIndex = 0;
          this.lvBuckets.UseCompatibleStateImageBehavior = false;
          this.lvBuckets.View = System.Windows.Forms.View.Details;
@@ -457,10 +429,9 @@
          // 
          this.btnExport.BackColor = System.Drawing.SystemColors.Control;
          this.btnExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.btnExport.Location = new System.Drawing.Point(600, 8);
-         this.btnExport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.btnExport.Location = new System.Drawing.Point(480, 6);
          this.btnExport.Name = "btnExport";
-         this.btnExport.Size = new System.Drawing.Size(108, 42);
+         this.btnExport.Size = new System.Drawing.Size(86, 34);
          this.btnExport.TabIndex = 26;
          this.btnExport.Text = "E&xport";
          this.toolTip1.SetToolTip(this.btnExport, "Displays a summary of transactions by category");
@@ -471,10 +442,9 @@
          // 
          this.btnDeleteBankData.BackColor = System.Drawing.SystemColors.Control;
          this.btnDeleteBankData.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.btnDeleteBankData.Location = new System.Drawing.Point(600, 58);
-         this.btnDeleteBankData.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.btnDeleteBankData.Location = new System.Drawing.Point(480, 46);
          this.btnDeleteBankData.Name = "btnDeleteBankData";
-         this.btnDeleteBankData.Size = new System.Drawing.Size(108, 42);
+         this.btnDeleteBankData.Size = new System.Drawing.Size(86, 34);
          this.btnDeleteBankData.TabIndex = 25;
          this.btnDeleteBankData.Text = "-BankData";
          this.toolTip1.SetToolTip(this.btnDeleteBankData, "Deletes imported bank data greater than 6 Months old which is both Cleared and NO" +
@@ -486,10 +456,9 @@
          // 
          this.btnActivity.BackColor = System.Drawing.Color.Tomato;
          this.btnActivity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.btnActivity.Location = new System.Drawing.Point(498, 58);
-         this.btnActivity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.btnActivity.Location = new System.Drawing.Point(398, 46);
          this.btnActivity.Name = "btnActivity";
-         this.btnActivity.Size = new System.Drawing.Size(95, 42);
+         this.btnActivity.Size = new System.Drawing.Size(76, 34);
          this.btnActivity.TabIndex = 24;
          this.btnActivity.Text = "Acti&vity";
          this.toolTip1.SetToolTip(this.btnActivity, "Enter a new Debit with Category = House");
@@ -500,10 +469,9 @@
          // 
          this.btnMedical.BackColor = System.Drawing.Color.Tomato;
          this.btnMedical.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.btnMedical.Location = new System.Drawing.Point(498, 8);
-         this.btnMedical.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.btnMedical.Location = new System.Drawing.Point(398, 6);
          this.btnMedical.Name = "btnMedical";
-         this.btnMedical.Size = new System.Drawing.Size(95, 42);
+         this.btnMedical.Size = new System.Drawing.Size(76, 34);
          this.btnMedical.TabIndex = 23;
          this.btnMedical.Text = "&Medical";
          this.toolTip1.SetToolTip(this.btnMedical, "Enter a new Debit with Category = House");
@@ -514,10 +482,9 @@
          // 
          this.btnDebitHouse.BackColor = System.Drawing.Color.Tomato;
          this.btnDebitHouse.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.btnDebitHouse.Location = new System.Drawing.Point(399, 58);
-         this.btnDebitHouse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.btnDebitHouse.Location = new System.Drawing.Point(319, 46);
          this.btnDebitHouse.Name = "btnDebitHouse";
-         this.btnDebitHouse.Size = new System.Drawing.Size(91, 42);
+         this.btnDebitHouse.Size = new System.Drawing.Size(73, 34);
          this.btnDebitHouse.TabIndex = 22;
          this.btnDebitHouse.Text = "&House";
          this.toolTip1.SetToolTip(this.btnDebitHouse, "Enter a new Debit with Category = House");
@@ -528,10 +495,9 @@
          // 
          this.btnDebitUtility.BackColor = System.Drawing.Color.Tomato;
          this.btnDebitUtility.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.btnDebitUtility.Location = new System.Drawing.Point(300, 58);
-         this.btnDebitUtility.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.btnDebitUtility.Location = new System.Drawing.Point(240, 46);
          this.btnDebitUtility.Name = "btnDebitUtility";
-         this.btnDebitUtility.Size = new System.Drawing.Size(91, 42);
+         this.btnDebitUtility.Size = new System.Drawing.Size(73, 34);
          this.btnDebitUtility.TabIndex = 21;
          this.btnDebitUtility.Text = "&Utility";
          this.toolTip1.SetToolTip(this.btnDebitUtility, "Enter a new Debit with Category = Utility");
@@ -541,10 +507,9 @@
          // btnBalance
          // 
          this.btnBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.btnBalance.Location = new System.Drawing.Point(862, 8);
-         this.btnBalance.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.btnBalance.Location = new System.Drawing.Point(690, 6);
          this.btnBalance.Name = "btnBalance";
-         this.btnBalance.Size = new System.Drawing.Size(102, 42);
+         this.btnBalance.Size = new System.Drawing.Size(82, 34);
          this.btnBalance.TabIndex = 20;
          this.btnBalance.Text = "&Balance";
          this.toolTip1.SetToolTip(this.btnBalance, "Automatically Balances matching up Uncleared Bank Transactions to Uncleared Regis" +
@@ -556,10 +521,9 @@
          // 
          this.btnDebit.BackColor = System.Drawing.Color.Tomato;
          this.btnDebit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.btnDebit.Location = new System.Drawing.Point(102, 8);
-         this.btnDebit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.btnDebit.Location = new System.Drawing.Point(82, 6);
          this.btnDebit.Name = "btnDebit";
-         this.btnDebit.Size = new System.Drawing.Size(91, 42);
+         this.btnDebit.Size = new System.Drawing.Size(73, 34);
          this.btnDebit.TabIndex = 19;
          this.btnDebit.Text = "&Misc";
          this.toolTip1.SetToolTip(this.btnDebit, "Enter a new Debit with Category = Misc");
@@ -569,10 +533,9 @@
          // btnSave
          // 
          this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.btnSave.Location = new System.Drawing.Point(862, 58);
-         this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.btnSave.Location = new System.Drawing.Point(690, 46);
          this.btnSave.Name = "btnSave";
-         this.btnSave.Size = new System.Drawing.Size(102, 42);
+         this.btnSave.Size = new System.Drawing.Size(82, 34);
          this.btnSave.TabIndex = 16;
          this.btnSave.Text = "Save";
          this.toolTip1.SetToolTip(this.btnSave, "Save Register Data and Bank Data To Disk");
@@ -582,10 +545,9 @@
          // btnImportStatement
          // 
          this.btnImportStatement.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.btnImportStatement.Location = new System.Drawing.Point(715, 58);
-         this.btnImportStatement.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.btnImportStatement.Location = new System.Drawing.Point(572, 46);
          this.btnImportStatement.Name = "btnImportStatement";
-         this.btnImportStatement.Size = new System.Drawing.Size(140, 42);
+         this.btnImportStatement.Size = new System.Drawing.Size(112, 34);
          this.btnImportStatement.TabIndex = 15;
          this.btnImportStatement.Text = "&Statement";
          this.toolTip1.SetToolTip(this.btnImportStatement, "View previously imported Bank Statement Data");
@@ -596,10 +558,9 @@
          // 
          this.btnCredit.BackColor = System.Drawing.Color.SpringGreen;
          this.btnCredit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.btnCredit.Location = new System.Drawing.Point(4, 8);
-         this.btnCredit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.btnCredit.Location = new System.Drawing.Point(3, 6);
          this.btnCredit.Name = "btnCredit";
-         this.btnCredit.Size = new System.Drawing.Size(91, 91);
+         this.btnCredit.Size = new System.Drawing.Size(73, 73);
          this.btnCredit.TabIndex = 13;
          this.btnCredit.Text = "&Credit";
          this.toolTip1.SetToolTip(this.btnCredit, "Enter a new Credit");
@@ -610,10 +571,9 @@
          // 
          this.btnDebitJoy.BackColor = System.Drawing.Color.Tomato;
          this.btnDebitJoy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.btnDebitJoy.Location = new System.Drawing.Point(399, 8);
-         this.btnDebitJoy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.btnDebitJoy.Location = new System.Drawing.Point(319, 6);
          this.btnDebitJoy.Name = "btnDebitJoy";
-         this.btnDebitJoy.Size = new System.Drawing.Size(91, 42);
+         this.btnDebitJoy.Size = new System.Drawing.Size(73, 34);
          this.btnDebitJoy.TabIndex = 11;
          this.btnDebitJoy.Text = "&Joy";
          this.toolTip1.SetToolTip(this.btnDebitJoy, "Enter a new Debit with Category = Joy");
@@ -624,10 +584,9 @@
          // 
          this.btnDebitAuto.BackColor = System.Drawing.Color.Tomato;
          this.btnDebitAuto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.btnDebitAuto.Location = new System.Drawing.Point(102, 58);
-         this.btnDebitAuto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.btnDebitAuto.Location = new System.Drawing.Point(82, 46);
          this.btnDebitAuto.Name = "btnDebitAuto";
-         this.btnDebitAuto.Size = new System.Drawing.Size(91, 42);
+         this.btnDebitAuto.Size = new System.Drawing.Size(73, 34);
          this.btnDebitAuto.TabIndex = 9;
          this.btnDebitAuto.Text = "&Auto";
          this.toolTip1.SetToolTip(this.btnDebitAuto, "Enter a new Debit with Category = Auto");
@@ -638,10 +597,9 @@
          // 
          this.btnDebitSchool.BackColor = System.Drawing.Color.Tomato;
          this.btnDebitSchool.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.btnDebitSchool.Location = new System.Drawing.Point(201, 58);
-         this.btnDebitSchool.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.btnDebitSchool.Location = new System.Drawing.Point(161, 46);
          this.btnDebitSchool.Name = "btnDebitSchool";
-         this.btnDebitSchool.Size = new System.Drawing.Size(91, 42);
+         this.btnDebitSchool.Size = new System.Drawing.Size(73, 34);
          this.btnDebitSchool.TabIndex = 8;
          this.btnDebitSchool.Text = "Schoo&l";
          this.toolTip1.SetToolTip(this.btnDebitSchool, "Enter a new Debit with Category = School");
@@ -652,10 +610,9 @@
          // 
          this.btnDebitDining.BackColor = System.Drawing.Color.Tomato;
          this.btnDebitDining.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.btnDebitDining.Location = new System.Drawing.Point(300, 8);
-         this.btnDebitDining.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.btnDebitDining.Location = new System.Drawing.Point(240, 6);
          this.btnDebitDining.Name = "btnDebitDining";
-         this.btnDebitDining.Size = new System.Drawing.Size(91, 42);
+         this.btnDebitDining.Size = new System.Drawing.Size(73, 34);
          this.btnDebitDining.TabIndex = 7;
          this.btnDebitDining.Text = "&Dining";
          this.toolTip1.SetToolTip(this.btnDebitDining, "Enter a new Debit with Category = Dining");
@@ -666,10 +623,9 @@
          // 
          this.btnDebitFood.BackColor = System.Drawing.Color.Tomato;
          this.btnDebitFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.btnDebitFood.Location = new System.Drawing.Point(201, 8);
-         this.btnDebitFood.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.btnDebitFood.Location = new System.Drawing.Point(161, 6);
          this.btnDebitFood.Name = "btnDebitFood";
-         this.btnDebitFood.Size = new System.Drawing.Size(91, 42);
+         this.btnDebitFood.Size = new System.Drawing.Size(73, 34);
          this.btnDebitFood.TabIndex = 6;
          this.btnDebitFood.Text = "&Food";
          this.toolTip1.SetToolTip(this.btnDebitFood, "Enter a new Debit with Category = Food");
@@ -679,10 +635,9 @@
          // btnViewData
          // 
          this.btnViewData.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.btnViewData.Location = new System.Drawing.Point(715, 8);
-         this.btnViewData.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.btnViewData.Location = new System.Drawing.Point(572, 6);
          this.btnViewData.Name = "btnViewData";
-         this.btnViewData.Size = new System.Drawing.Size(140, 42);
+         this.btnViewData.Size = new System.Drawing.Size(112, 34);
          this.btnViewData.TabIndex = 4;
          this.btnViewData.Text = "&Register";
          this.toolTip1.SetToolTip(this.btnViewData, "View Register Data");
@@ -706,13 +661,13 @@
             this.toolStripcbColor});
          this.contextMenuStrip1.Name = "contextMenuStrip1";
          this.contextMenuStrip1.ShowCheckMargin = true;
-         this.contextMenuStrip1.Size = new System.Drawing.Size(294, 114);
+         this.contextMenuStrip1.Size = new System.Drawing.Size(249, 103);
          // 
          // stealthModeOffForeverToolStripMenuItem
          // 
          this.stealthModeOffForeverToolStripMenuItem.CheckOnClick = true;
          this.stealthModeOffForeverToolStripMenuItem.Name = "stealthModeOffForeverToolStripMenuItem";
-         this.stealthModeOffForeverToolStripMenuItem.Size = new System.Drawing.Size(293, 24);
+         this.stealthModeOffForeverToolStripMenuItem.Size = new System.Drawing.Size(248, 22);
          this.stealthModeOffForeverToolStripMenuItem.Text = "Stealth Mode Off Forever";
          this.stealthModeOffForeverToolStripMenuItem.Click += new System.EventHandler(this.stealthModeOffForeverToolStripMenuItem_Click);
          // 
@@ -720,7 +675,7 @@
          // 
          this.stealthModeOff10SecondsToolStripMenuItem.CheckOnClick = true;
          this.stealthModeOff10SecondsToolStripMenuItem.Name = "stealthModeOff10SecondsToolStripMenuItem";
-         this.stealthModeOff10SecondsToolStripMenuItem.Size = new System.Drawing.Size(293, 24);
+         this.stealthModeOff10SecondsToolStripMenuItem.Size = new System.Drawing.Size(248, 22);
          this.stealthModeOff10SecondsToolStripMenuItem.Text = "Stealth Mode Off 10 Seconds";
          this.stealthModeOff10SecondsToolStripMenuItem.Click += new System.EventHandler(this.stealthModeOff10SecondsToolStripMenuItem_Click);
          // 
@@ -728,14 +683,14 @@
          // 
          this.toolStrip_StealthOff2Seconds.CheckOnClick = true;
          this.toolStrip_StealthOff2Seconds.Name = "toolStrip_StealthOff2Seconds";
-         this.toolStrip_StealthOff2Seconds.Size = new System.Drawing.Size(293, 24);
+         this.toolStrip_StealthOff2Seconds.Size = new System.Drawing.Size(248, 22);
          this.toolStrip_StealthOff2Seconds.Text = "Stealth Mode Off 2 Seconds";
          this.toolStrip_StealthOff2Seconds.Click += new System.EventHandler(this.toolStrip_StealthOff2Seconds_Click);
          // 
          // toolStripSeparator1
          // 
          this.toolStripSeparator1.Name = "toolStripSeparator1";
-         this.toolStripSeparator1.Size = new System.Drawing.Size(290, 6);
+         this.toolStripSeparator1.Size = new System.Drawing.Size(245, 6);
          // 
          // toolStripcbColor
          // 
@@ -745,7 +700,7 @@
             "Boys"});
          this.toolStripcbColor.MaxDropDownItems = 2;
          this.toolStripcbColor.Name = "toolStripcbColor";
-         this.toolStripcbColor.Size = new System.Drawing.Size(121, 28);
+         this.toolStripcbColor.Size = new System.Drawing.Size(121, 23);
          this.toolStripcbColor.SelectedIndexChanged += new System.EventHandler(this.toolStripcbColor_SelectedIndexChanged);
          // 
          // tmrStealthAutoOn
@@ -755,15 +710,14 @@
          // 
          // frmMain
          // 
-         this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
-         this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-         this.ClientSize = new System.Drawing.Size(980, 386);
+         this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+         this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+         this.ClientSize = new System.Drawing.Size(786, 314);
          this.ContextMenuStrip = this.contextMenuStrip1;
          this.Controls.Add(this.splitContainer1);
          this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
          this.KeyPreview = true;
-         this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-         this.MinimumSize = new System.Drawing.Size(998, 177);
+         this.MinimumSize = new System.Drawing.Size(802, 149);
          this.Name = "frmMain";
          this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
          this.Text = "Checking - v3.0.0.0";
