@@ -107,7 +107,7 @@ namespace CV_Checking
 		private void PopulateForm()
 		{
          data.Compute();
-		   txtBalance.Text         = data.Balance.ToString("F2");
+		   txtBalance.Text         = (data.Balance + data.TotalBuckets).ToString("F2");
 		   txtTotalUncleared.Text  = data.TotalUncleared.ToString("F2");
 		   txtTotalCredits.Text    = data.TotalCredits.ToString("F2");
 		   txtTotalDebits.Text     = data.TotalDebits.ToString("F2");

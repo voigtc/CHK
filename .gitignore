@@ -195,3 +195,4 @@ CV_Checking.exe
 CV_Checking.pdb
 data.bin
 DataBackup/
+.vs/

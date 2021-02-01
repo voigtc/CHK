@@ -129,8 +129,8 @@
          this.splitContainer1.Panel2.Controls.Add(this.btnDebitDining);
          this.splitContainer1.Panel2.Controls.Add(this.btnDebitFood);
          this.splitContainer1.Panel2.Controls.Add(this.btnViewData);
-         this.splitContainer1.Size = new System.Drawing.Size(786, 314);
-         this.splitContainer1.SplitterDistance = 223;
+         this.splitContainer1.Size = new System.Drawing.Size(786, 379);
+         this.splitContainer1.SplitterDistance = 288;
          this.splitContainer1.TabIndex = 1;
          // 
          // splitContainer2
@@ -148,7 +148,7 @@
          // splitContainer2.Panel2
          // 
          this.splitContainer2.Panel2.Controls.Add(this.splitContainer3);
-         this.splitContainer2.Size = new System.Drawing.Size(786, 223);
+         this.splitContainer2.Size = new System.Drawing.Size(786, 288);
          this.splitContainer2.SplitterDistance = 286;
          this.splitContainer2.TabIndex = 1;
          // 
@@ -182,7 +182,7 @@
          this.splitContainer4.Panel2.Controls.Add(this.lblDiscrepancies);
          this.splitContainer4.Panel2.Controls.Add(this.lblBalance);
          this.splitContainer4.Panel2.Controls.Add(this.lblBankBalance);
-         this.splitContainer4.Size = new System.Drawing.Size(286, 223);
+         this.splitContainer4.Size = new System.Drawing.Size(286, 288);
          this.splitContainer4.SplitterDistance = 35;
          this.splitContainer4.TabIndex = 1;
          // 
@@ -280,6 +280,7 @@
          this.txtDiscrepancies.Size = new System.Drawing.Size(104, 19);
          this.txtDiscrepancies.TabIndex = 18;
          this.txtDiscrepancies.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+         this.toolTip1.SetToolTip(this.txtDiscrepancies, "Difference between \'Bank\' and \'Balance + Uncleared + Buckets\'");
          this.txtDiscrepancies.Visible = false;
          // 
          // txtBankBalance
@@ -293,6 +294,7 @@
          this.txtBankBalance.Size = new System.Drawing.Size(104, 19);
          this.txtBankBalance.TabIndex = 17;
          this.txtBankBalance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+         this.toolTip1.SetToolTip(this.txtBankBalance, "Balance According to the Bank\r\nEntered Each Time You Balance");
          this.txtBankBalance.Visible = false;
          // 
          // txtBalance
@@ -306,6 +308,8 @@
          this.txtBalance.Size = new System.Drawing.Size(104, 26);
          this.txtBalance.TabIndex = 16;
          this.txtBalance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+         this.toolTip1.SetToolTip(this.txtBalance, "Balance according to this application.\r\n\r\nAfter you Balance and \'Discrepancies\' =" +
+        " 0, This should equal the Total available at \'Bank\' - \'Uncleared\' - \'Buckets\'");
          this.txtBalance.Visible = false;
          // 
          // label2
@@ -381,7 +385,7 @@
          // splitContainer3.Panel2
          // 
          this.splitContainer3.Panel2.Controls.Add(this.lvBuckets);
-         this.splitContainer3.Size = new System.Drawing.Size(496, 223);
+         this.splitContainer3.Size = new System.Drawing.Size(496, 288);
          this.splitContainer3.SplitterDistance = 35;
          this.splitContainer3.TabIndex = 1;
          // 
@@ -418,9 +422,10 @@
          this.lvBuckets.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.lvBuckets.FullRowSelect = true;
          this.lvBuckets.GridLines = true;
+         this.lvBuckets.HideSelection = false;
          this.lvBuckets.Location = new System.Drawing.Point(0, 0);
          this.lvBuckets.Name = "lvBuckets";
-         this.lvBuckets.Size = new System.Drawing.Size(492, 180);
+         this.lvBuckets.Size = new System.Drawing.Size(492, 245);
          this.lvBuckets.TabIndex = 0;
          this.lvBuckets.UseCompatibleStateImageBehavior = false;
          this.lvBuckets.View = System.Windows.Forms.View.Details;
@@ -712,7 +717,7 @@
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-         this.ClientSize = new System.Drawing.Size(786, 314);
+         this.ClientSize = new System.Drawing.Size(786, 379);
          this.ContextMenuStrip = this.contextMenuStrip1;
          this.Controls.Add(this.splitContainer1);
          this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
