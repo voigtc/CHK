@@ -235,8 +235,11 @@ namespace CV_Checking
                ListViewItem lvi = new ListViewItem(new string[] {"??????", "------"});
                if (bShowAmounts == true)
                {
-                  lvi.SubItems[0].Text = ((Bucket)li.Tag).Description;
-                  lvi.SubItems[1].Text = ((Bucket)li.Tag).Amount.ToString("F2").Replace("-","");
+                  if (li  != null)
+                  {
+                     lvi.SubItems[0].Text = ((Bucket)li.Tag).Description;
+                     lvi.SubItems[1].Text = ((Bucket)li.Tag).Amount.ToString("F2").Replace("-","");
+                  }
                }
                lvi.Tag = b;
                Items.Add(lvi);

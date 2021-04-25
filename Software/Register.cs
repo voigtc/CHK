@@ -86,43 +86,45 @@ namespace CV_Checking
          int seqMax = 0;
          foreach (Transaction t in data)//for (int i = 0; i < data.Count; i++)
          {
-            if (t.GetType() == typeof(Bucket))
-            {
-               TotalBuckets += t.Amount;
-            }
-            
             Balance += t.Amount;
 
-            if (t.Amount > 0)
+            if (t.GetType() == typeof(Bucket))
             {
-               TotalCredits += t.Amount;
+               TotalBuckets   += t.Amount;
             }
             else
             {
-               TotalDebits -= t.Amount;
+               if (t.Cleared == false)
+               {
+                  TotalUncleared += t.Amount;
+               }
+               else if (t.Amount > 0)
+               {
+                  TotalCredits += t.Amount;
+               }
+               else
+               {
+                  TotalDebits += t.Amount;
+               }
             }
-            
-            if (t.Cleared == false)
-            {
-               TotalUncleared += t.Amount;
-            }
-            
+
             if (t.ID > seqMax)
             {
                seqMax = t.ID;
             }
          }
+         
          Transaction.SEQUENCE_NEXT = seqMax+1;
-         Balance = TotalCredits - TotalDebits;
-         TotalDiscrepancies = BankBalance - (Balance - TotalUncleared);
+
+         TotalDiscrepancies = BankBalance + TotalUncleared + TotalBuckets - Balance;
 
          // Round all values to 2 decimal places ($$$)
-         Balance              = decimal.Round(Balance, 2);
-         TotalCredits         = decimal.Round(TotalCredits, 2);
-         TotalDebits          = decimal.Round(TotalDebits,2);
-         TotalUncleared       = decimal.Round(TotalUncleared, 2);
-         TotalBuckets         = decimal.Round(TotalBuckets, 2);
-         TotalDiscrepancies   = decimal.Round(TotalDiscrepancies, 2);
+         Balance              =  decimal.Round(Balance,            2);
+         TotalCredits         =  decimal.Round(TotalCredits,       2);
+         TotalDebits          = -decimal.Round(TotalDebits,        2);
+         TotalUncleared       = -decimal.Round(TotalUncleared,     2);
+         TotalBuckets         = -decimal.Round(TotalBuckets,       2);
+         TotalDiscrepancies   =  decimal.Round(TotalDiscrepancies, 2);
          
          return Balance;
       }

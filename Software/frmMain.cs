@@ -14,8 +14,9 @@ namespace CV_Checking
 	   Register data = new Register();
 	   frmViewer viewRegister  = null;
 	   frmViewer viewStatement = null;
-      bool bStealth = true;
-      
+      bool bStealth  = true;
+      bool bShow     = false;
+
 		public frmMain()
 		{
 			InitializeComponent();
@@ -64,17 +65,14 @@ namespace CV_Checking
             }
          }
          lvBuckets.PopulateForm(data.Data);
-         lvBuckets._TransactionChanged += new TransactionChangedHandler(bucket_ListView1__BucketChanged);
-         lvBuckets._TransactionRemoved += new TransactionRemovedHandler(bucket_ListView1__BucketRemoved);
 
 
          viewRegister   = new frmViewer(data.Data, true);
          viewRegister.FormClosed += new FormClosedEventHandler(frm_FormClosed);
-         viewRegister._TransactionChanged += new TransactionChangedHandler(viewRegister__TransactionChanged);
          viewRegister._TransactionRemoved += new TransactionRemovedHandler(viewRegister__TransactionRemoved);
          viewStatement  = new frmViewer(data.BankData, false);
 
-			PopulateForm();
+         tmrUpdate.Enabled = true;
       }
 
       void data__Status(string stat)
@@ -82,46 +80,16 @@ namespace CV_Checking
          Text = "Checking v" + Application.ProductVersion + " - " + stat;
       }
 
-      void bucket_ListView1__BucketChanged()
-      {
-         PopulateForm();
-      }
-		
       void bucket_ListView1__BucketRemoved()
       {
          data.bTransactionListModified = true;  // Set dirty flag
-         PopulateForm();
-      }
-
-      void viewRegister__TransactionChanged()
-      {
-         PopulateForm();
       }
 
       void viewRegister__TransactionRemoved()
       {
          data.bTransactionListModified = true;  // Set Dirty flag
-         PopulateForm();
       }
 
-		private void PopulateForm()
-		{
-         data.Compute();
-		   txtBalance.Text         = (data.Balance + data.TotalBuckets).ToString("F2");
-		   txtTotalUncleared.Text  = data.TotalUncleared.ToString("F2");
-		   txtTotalCredits.Text    = data.TotalCredits.ToString("F2");
-		   txtTotalDebits.Text     = data.TotalDebits.ToString("F2");
-         txtNumTransactions.Text = data.Data.Count.ToString();
-         txtBankBalance.Text     = data.BankBalance.ToString("F2");
-         txtDiscrepancies.Text   = data.TotalDiscrepancies.ToString("F2");
-         decimal buckets         = -data.TotalBuckets;
-         lblBuckets.Text         = "Buckets $" + buckets.ToString("F2");
-         if (viewRegister != null)
-         {
-           viewRegister.SetDiscrepancies(data.TotalDiscrepancies);
-         }
-		}
-      
       private void ShowBankData()
       {
          viewStatement.PopulateForm();
@@ -146,7 +114,6 @@ namespace CV_Checking
          if (res == DialogResult.OK)
          {
             data.Data.Add(frm.transaction);
-            PopulateForm();
          }
       }
       
@@ -245,7 +212,6 @@ namespace CV_Checking
 
       void frm_FormClosed(object sender, FormClosedEventArgs e)
       {
-         PopulateForm();
       }
 
       private void btnDebitUtility_Click(object sender, EventArgs e)
@@ -318,7 +284,6 @@ namespace CV_Checking
          if (res == DialogResult.OK)
          {
             data.BankBalance = frm.numericUpDown1.Value;
-            PopulateForm();
          }
          else if (res == DialogResult.Cancel)
          {
@@ -337,7 +302,6 @@ namespace CV_Checking
                for (int i = 0; i < 1; i++)
                {
                   data.Import_BankData(openFileDialog1.FileName);
-                  PopulateForm();
                }
             }
             else
@@ -353,7 +317,6 @@ namespace CV_Checking
          if (res == DialogResult.Yes)
          {
             data.AutoBalance();
-            PopulateForm();
             if (data.TotalDiscrepancies != 0)
             {
                MessageBox.Show("Balance Complete, Discrepancies not Zero");
@@ -373,33 +336,19 @@ namespace CV_Checking
          viewStatement.PopulateForm();
       }
 
-      private void ShowAmounts(bool bShow)
-      {
-         txtBalance.Visible         = bShow || !bStealth;
-         txtBankBalance.Visible     = bShow || !bStealth;
-         txtDiscrepancies.Visible   = bShow || !bStealth;
-         txtTotalCredits.Visible    = bShow || !bStealth;
-         txtTotalDebits.Visible     = bShow || !bStealth;
-         txtTotalUncleared.Visible  = bShow || !bStealth;
-         txtNumTransactions.Visible = bShow || !bStealth;
-         lblBuckets.Visible         = bShow || !bStealth;
-         lvBuckets.ShowAmounts(bShow || !bStealth);
-      }
-      
       private void lblBalance_MouseEnter(object sender, EventArgs e)
       {
-         ShowAmounts(true);
+         bShow = true;
       }
 
       private void lblBalance_MouseLeave(object sender, EventArgs e)
       {
-         ShowAmounts(false);
+         bShow = false;
       }
 
       private void stealthModeOffForeverToolStripMenuItem_Click(object sender, EventArgs e)
       {
          bStealth = !stealthModeOffForeverToolStripMenuItem.Checked;
-         ShowAmounts(!bStealth);
          contextMenuStrip1.Close();
          tmrStealthAutoOn.Enabled = false;
       }
@@ -407,7 +356,6 @@ namespace CV_Checking
       private void stealthModeOff10SecondsToolStripMenuItem_Click(object sender, EventArgs e)
       {
          bStealth = !stealthModeOff10SecondsToolStripMenuItem.Checked;
-         ShowAmounts(!bStealth);
          contextMenuStrip1.Close();
          if (!bStealth)
          {
@@ -418,7 +366,6 @@ namespace CV_Checking
       private void toolStrip_StealthOff2Seconds_Click(object sender, EventArgs e)
       {
          bStealth = !toolStrip_StealthOff2Seconds.Checked;
-         ShowAmounts(!bStealth);
          contextMenuStrip1.Close();
          if (!bStealth)
          {
@@ -453,11 +400,43 @@ namespace CV_Checking
       {
          tmrStealthAutoOn.Enabled = false;
          bStealth = true;
-         ShowAmounts(false);
+         bShow    = false;
          toolStrip_StealthOff2Seconds.Checked = false;
          stealthModeOff10SecondsToolStripMenuItem.Checked = false;
          stealthModeOffForeverToolStripMenuItem.Checked = false;
       }
 
-	}
+      private void tmrUpdate_Tick(object sender, EventArgs e)
+      {
+
+         data.Compute();
+
+		   txtBalance.Text         = (data.Balance + data.TotalBuckets).ToString("F2");
+		   txtTotalUncleared.Text  = data.TotalUncleared.ToString("F2");
+		   txtTotalCredits.Text    = data.TotalCredits.ToString("F2");
+		   txtTotalDebits.Text     = data.TotalDebits.ToString("F2");
+         txtNumTransactions.Text = data.Data.Count.ToString();
+         txtBankBalance.Text     = data.BankBalance.ToString("F2");
+         txtDiscrepancies.Text   = data.TotalDiscrepancies.ToString("F2");
+         lblBuckets.Text         = "Buckets $: " + data.TotalBuckets.ToString("F2");
+         if (viewRegister != null)
+         {
+           viewRegister.SetDiscrepancies(data.TotalDiscrepancies);
+         }
+
+         bool _bShow = bShow || !bStealth;
+
+         lblSummary.Text = _bShow ? "Available $: " + data.Balance.ToString("F2") : lblSummary.Text = "Summary";
+
+         txtBalance.Visible         = _bShow;
+         txtBankBalance.Visible     = _bShow;
+         txtDiscrepancies.Visible   = _bShow;
+         txtTotalCredits.Visible    = _bShow;
+         txtTotalDebits.Visible     = _bShow;
+         txtTotalUncleared.Visible  = _bShow;
+         txtNumTransactions.Visible = _bShow;
+         lblBuckets.Visible         = _bShow;
+         lvBuckets.ShowAmounts(_bShow);
+      }
+   }
 }

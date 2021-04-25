@@ -78,6 +78,7 @@
          this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
          this.toolStripcbColor = new System.Windows.Forms.ToolStripComboBox();
          this.tmrStealthAutoOn = new System.Windows.Forms.Timer(this.components);
+         this.tmrUpdate = new System.Windows.Forms.Timer(this.components);
          ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
          this.splitContainer1.Panel1.SuspendLayout();
          this.splitContainer1.Panel2.SuspendLayout();
@@ -280,7 +281,7 @@
          this.txtDiscrepancies.Size = new System.Drawing.Size(104, 19);
          this.txtDiscrepancies.TabIndex = 18;
          this.txtDiscrepancies.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-         this.toolTip1.SetToolTip(this.txtDiscrepancies, "Difference between \'Bank\' and \'Balance + Uncleared + Buckets\'");
+         this.toolTip1.SetToolTip(this.txtDiscrepancies, "\'Bank - Balance - TotalUncleared");
          this.txtDiscrepancies.Visible = false;
          // 
          // txtBankBalance
@@ -309,7 +310,7 @@
          this.txtBalance.TabIndex = 16;
          this.txtBalance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
          this.toolTip1.SetToolTip(this.txtBalance, "Balance according to this application.\r\n\r\nAfter you Balance and \'Discrepancies\' =" +
-        " 0, This should equal the Total available at \'Bank\' - \'Uncleared\' - \'Buckets\'");
+        " 0, This should equal the Total available at \'Bank\' - \'Uncleared\'.");
          this.txtBalance.Visible = false;
          // 
          // label2
@@ -713,6 +714,10 @@
          this.tmrStealthAutoOn.Interval = 10000;
          this.tmrStealthAutoOn.Tick += new System.EventHandler(this.tmrStealthAutoOn_Tick);
          // 
+         // tmrUpdate
+         // 
+         this.tmrUpdate.Tick += new System.EventHandler(this.tmrUpdate_Tick);
+         // 
          // frmMain
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -801,6 +806,7 @@
       private System.Windows.Forms.ToolStripMenuItem stealthModeOffForeverToolStripMenuItem;
       private System.Windows.Forms.ToolStripMenuItem stealthModeOff10SecondsToolStripMenuItem;
       private System.Windows.Forms.Button btnExport;
-	}
+      private System.Windows.Forms.Timer tmrUpdate;
+   }
 }
 
