@@ -182,10 +182,10 @@ namespace CV_Checking
       private void btnDeleteBankData_Click(object sender, EventArgs e)
       {
          DialogResult _res;
-         _res = MessageBox.Show("Delete All Cleared and NON-Flagged bank data?", "Delete Bank Data", MessageBoxButtons.YesNo);
+         _res = MessageBox.Show("Delete All Cleared and NON-Flagged bank data older than 6 months?", "Delete Bank Data", MessageBoxButtons.YesNo);
          if (_res == System.Windows.Forms.DialogResult.Yes)
          {
-            data.ClearBankData();
+            data.ClearBankData();   // Remove all bank data older than 6 months.
          }
       }
       #endregion NEW TRANSACTIONS
@@ -290,7 +290,7 @@ namespace CV_Checking
             return;
          }
 
-         res = MessageBox.Show("Do you want to import Statement Transactions?", "Import Statement", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+         res = MessageBox.Show("Import Statement Transactions?", "Import Statement", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
          if (res == DialogResult.Yes)
          {
             openFileDialog1.InitialDirectory = Application.StartupPath;
@@ -317,6 +317,7 @@ namespace CV_Checking
          if (res == DialogResult.Yes)
          {
             data.AutoBalance();
+            data.Compute();
             if (data.TotalDiscrepancies != 0)
             {
                MessageBox.Show("Balance Complete, Discrepancies not Zero");

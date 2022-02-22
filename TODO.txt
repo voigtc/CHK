@@ -1,0 +1,8 @@
+-0- Delete old "Imported-*.csv" files.
+-T- v3.7 - Fixed End of Balancing issue where you have to balance again to be zero descrepancies
+-T- v3.7 - Changed Export button to export up to date selected, and then prompt to remove exported transactions.
+-X- Show Bucket amounts as positive in list view
+-0- Turn On Encryption
+-0- How to get version from assembly..
+
+   

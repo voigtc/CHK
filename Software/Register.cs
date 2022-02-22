@@ -19,8 +19,9 @@ namespace CV_Checking
       public static event StatusHandler _Status;
       public static event BalanceItemsClearedHandler _BalanceItemsCleared;
       
-      const string DATAFILE = "data.bin";
-      const string DATA_BAK_DIR = ".\\DataBackup\\";
+      public readonly static string VAULT        = ".";
+      public readonly static string DATAFILE     = VAULT + "data.bin";
+      public readonly static string DATA_BAK_DIR = ".\\DataBackup\\";
       
       // Seriazable Data
       List<Transaction> data = new List<Transaction>();
@@ -38,6 +39,20 @@ namespace CV_Checking
       
       private static string password;
       
+      static Register()
+      {
+         if (System.Diagnostics.Debugger.IsAttached)
+         {
+            VAULT          = "..\\";   // Previous directory
+         }
+         else
+         {
+            VAULT          = ".\\";
+         }
+         DATAFILE       = VAULT + "data.bin";
+         DATA_BAK_DIR   = VAULT + "DataBackup\\";
+      }
+
       /// <summary>
       /// Parameterless constructor for serialization
       /// </summary>
@@ -208,10 +223,10 @@ namespace CV_Checking
                Directory.CreateDirectory(DATA_BAK_DIR);
             }
             Fire_Status("BACKING UP DATA FILE TO DIRECTORY " + DATA_BAK_DIR);
-            File.Copy(DATAFILE, DATA_BAK_DIR + DateTime.Now.ToString("yyyyMMdd_hhmmss_") + DATAFILE);
+            File.Copy(DATAFILE, DATA_BAK_DIR + DateTime.Now.ToString("yyyyMMdd_hhmmss_") + "data.bak");
             // Delete backup data files older than 31 days old
             DirectoryInfo di = new DirectoryInfo(DATA_BAK_DIR);
-            FileInfo []files = di.GetFiles("*" + DATAFILE);
+            FileInfo []files = di.GetFiles("*data.bak");
             foreach (FileInfo f in files)
             {
                TimeSpan ts = new TimeSpan(DateTime.Now.Ticks - f.LastWriteTime.Ticks);
@@ -255,11 +270,19 @@ namespace CV_Checking
 
       public void Save()
       {
-         Stream stream = null;
-         MemoryStream memStr = null;
+         string         _dataFile   = DATAFILE;
+         Stream         stream      = null;
+         MemoryStream   memStr      = null;
+
          try
          {
-            FileInfo fi = new FileInfo(DATAFILE);
+            if (System.Diagnostics.Debugger.IsAttached)
+            {
+               _dataFile = _dataFile.Replace(".bin", "-dbg.bin");
+               MessageBox.Show($"Debugger Attached - Saving to:  {_dataFile}");
+            }
+
+            FileInfo fi = new FileInfo(_dataFile);
             if (fi.Exists && fi.IsReadOnly)
             {
                fi.Attributes = fi.Attributes ^ FileAttributes.ReadOnly; // Clear the Readonly flag.
@@ -277,15 +300,15 @@ namespace CV_Checking
           //byte [] encryptedBytes = Encrypter.Encrypt(memStr.ToArray(), password); // uncomment to decrypt
             
             // Write it out to disk.
-            Fire_Status("Saving File " + DATAFILE);
-            stream = File.Open(DATAFILE, FileMode.Create, FileAccess.Write, FileShare.ReadWrite);
+            Fire_Status("Saving File " + _dataFile);
+            stream = File.Open(_dataFile, FileMode.Create, FileAccess.Write, FileShare.ReadWrite);
             stream.Write(encryptedBytes, 0, encryptedBytes.Length);
             stream.Flush();
             stream.Close();
          }
          catch (Exception ex)
          {
-            MessageBox.Show("Exception Saving Recipe File:  " + DATAFILE + "\r\nException:  " + ex.Message,
+            MessageBox.Show("Exception Saving Recipe File:  " + _dataFile + "\r\nException:  " + ex.Message,
                                   "RecipeData.cs", System.Windows.Forms.MessageBoxButtons.OK);
          }
          finally
@@ -298,7 +321,7 @@ namespace CV_Checking
             {
                memStr.Close();
             }
-            Fire_Status("Saving File " + DATAFILE + " Complete");
+            Fire_Status("Saving File " + _dataFile + " Complete");
          }
       }
       #endregion LOAD/SAVE
@@ -376,44 +399,53 @@ namespace CV_Checking
 
       public void Export_CSV(string _filename, DateTime _date)
       {
-         string _csvFile = _filename + ".csv";
-         // Write the list out to file.  If this is a new file, add header
-         if (!File.Exists(_csvFile))
-         {
-            File.AppendAllText(_csvFile, Transaction.CSV_Header());
-         }
-         
-         StringBuilder _sb = new StringBuilder(10000);
-         Decimal _totalAmount = 0;
-         int _numExported = 0;
+         List<string>      _csvData = new List<string>();
+         List<Transaction> _txns    = new List<Transaction>();
+
+         _csvData.Add(Transaction.CSV_Header());
+
          for (int i = 0; i < data.Count; i++)
          {
             Transaction _t = data[i];
-            if (_t.Flagged)            continue;
-            if (_t.Cleared == false)   continue;
-            if (_t.Modified)           continue;
             if (_t.Ticks < _date.Ticks)
             {
-               _sb.Append(_t.CSV_DataString());
-               _totalAmount += _t.Amount;
-               _numExported++;
-               data.RemoveAt(i);
-               i = i-1;
+               _csvData.Add(_t.CSV_DataString());
+               _txns.Add(_t);
             }
          }
          
-         if (_sb.Length <= 0)
+         File.AppendAllLines(DATA_BAK_DIR + _filename + ".csv", _csvData);
+
+         DialogResult r = MessageBox.Show("DELETE EXPORTED TRANSACTIONS??\r\n(Does NOT delete modified/uncleared/flagged items)",
+                                          "DELETE EXPORTED", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+
+         if (r == DialogResult.Yes)
          {
-            return;
+            r = MessageBox.Show("DELETE EXPORTED TRANSACTIONS??", "DELETE EXPORTED", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            if (r == DialogResult.Yes)
+            {
+               Decimal _totalAmount = 0;
+               int _numExported = 0;
+               for (int i = 0; i < _txns.Count; i++)
+               {
+                  Transaction _t = _txns[i];
+                  if (_t.Flagged)            continue;
+                  if (_t.Cleared == false)   continue;
+                  if (_t.Modified)           continue;
+                  _totalAmount += _t.Amount;
+                  _numExported++;
+                  data.Remove(_t);
+               }
+               Transaction _txn = new Transaction(Category_T.Misc,
+                                                  "Exported (" + _numExported.ToString() + 
+                                                  ") Transactions. SUM " + DateTime.Now.ToString("yyyy-MM-dd"),
+                                                  _totalAmount);
+              // Add a single transaction to summarize all the ones removed
+               _txn.Flagged = true;
+               _txn.Cleared = true;
+               data.Add(_txn);
+            }
          }
-         File.AppendAllText(_csvFile, _sb.ToString());
-         Transaction _txn = new Transaction(Category_T.Misc,
-                                            "Exported (" + _numExported.ToString() + 
-                                            ") Transactions. SUM " + DateTime.Now.ToString("yyyy-MM-dd"),
-                                            _totalAmount);
-         _txn.Flagged = true;
-         _txn.Cleared = true;
-         data.Add(_txn);
       }
 
       public void Import_BankData(string csvFile)
@@ -520,7 +552,7 @@ namespace CV_Checking
          //////////////////////////////////////////////////////
          // Rename import file to show that it has been imported
          //////////////////////////////////////////////////////
-         File.Copy(csvFile, "Imported_" + DateTime.Now.ToString("yyyyMMdd_hhmmss") + ".csv");
+         File.Copy(csvFile, DATA_BAK_DIR + "Imported_" + DateTime.Now.ToString("yyyyMMdd_hhmmss") + ".csv");
          File.Delete(csvFile);
 
 
@@ -530,11 +562,11 @@ namespace CV_Checking
          Fire_Status("Deleting old Imported Bank Data (older than 30 days)");
          string path = Path.GetDirectoryName(csvFile);
          DirectoryInfo di = new DirectoryInfo(path);
-         FileInfo []files = di.GetFiles("Imported_*.csv");
+         FileInfo []files = di.GetFiles(DATA_BAK_DIR + "Imported_*.csv");
          foreach (FileInfo f in files)
          {
             TimeSpan ts = new TimeSpan(DateTime.Now.Ticks - f.LastWriteTime.Ticks);
-            if (ts.TotalDays > 31)
+            if (ts.TotalDays > 30)
             {
                f.Delete();
             }
@@ -546,6 +578,9 @@ namespace CV_Checking
       }
       #endregion IMPORT
 
+      /// <summary>
+      /// Remove all bank data older than 6 months.
+      /// </summary>
       internal void ClearBankData()
       {
          try

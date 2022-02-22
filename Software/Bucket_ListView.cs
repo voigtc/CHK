@@ -40,14 +40,15 @@ namespace CV_Checking
          //this.SelectedIndexChanged += new EventHandler(Recipe_ListView_SelectedIndexChanged);
 			GridLines = true;
 
-			colHeaderDescription = new System.Windows.Forms.ColumnHeader();
-			colHeaderDescription.Text = "Description";
-			colHeaderDescription.Width = 180;
-			
 			colHeaderAmount = new System.Windows.Forms.ColumnHeader();
 			colHeaderAmount.Text = "Amount";
 			colHeaderAmount.TextAlign = HorizontalAlignment.Right;
-			colHeaderAmount.Width = 110;
+			colHeaderAmount.Width = 100;
+
+			colHeaderDescription = new System.Windows.Forms.ColumnHeader();
+			colHeaderDescription.Text = "Description";
+			colHeaderDescription.Width = this.ClientRectangle.Width - colHeaderAmount.Width - 1;
+			
 
 			Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
 																			this.colHeaderDescription,
@@ -124,7 +125,6 @@ namespace CV_Checking
       void Bucket_ListView_Resize(object sender, EventArgs e)
       {
          btnIncrement.Hide();
-			colHeaderAmount.Width = 150;
 			colHeaderDescription.Width = this.ClientRectangle.Width - colHeaderAmount.Width - 1;
       }
 

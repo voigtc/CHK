@@ -6,11 +6,10 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{8131DE90-F96B-4D50-805D-C743AB1CEFF5}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
-		Software\CV_CHECKING_TODO.txt = Software\CV_CHECKING_TODO.txt
-		ImportResults.txt = ImportResults.txt
+		TODO.txt = TODO.txt
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CV_Checking", "CV_Checking.csproj", "{E4A4CCAC-7FC7-4389-AC39-8E91460EDBF0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CV_Checking", "Software\CV_Checking.csproj", "{E4A4CCAC-7FC7-4389-AC39-8E91460EDBF0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

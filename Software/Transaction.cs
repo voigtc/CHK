@@ -75,7 +75,7 @@ namespace CV_Checking
       #region OVERRIDES
       internal static string CSV_Header()
       {
-         return "ID,YYYY-DD-MM,CATEGORY,DESCRIPTION,AMOUNT,CLEARED,FLAGGED\r\n";
+         return "ID,YYYY-DD-MM,CATEGORY,DESCRIPTION,AMOUNT,CLEARED,FLAGGED";
       }
       
       internal string CSV_DataString()
@@ -86,8 +86,7 @@ namespace CV_Checking
                "," + description.Replace(","," ").ToString() +
                "," + amount.ToString() + 
                "," + Cleared.ToString() + 
-               "," + Flagged.ToString()+
-               "\r\n";
+               "," + Flagged.ToString();
       }
 
       public override string ToString()

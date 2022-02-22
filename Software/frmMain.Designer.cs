@@ -63,11 +63,7 @@
          this.btnSave = new System.Windows.Forms.Button();
          this.btnImportStatement = new System.Windows.Forms.Button();
          this.btnCredit = new System.Windows.Forms.Button();
-         this.btnDebitJoy = new System.Windows.Forms.Button();
          this.btnDebitAuto = new System.Windows.Forms.Button();
-         this.btnDebitSchool = new System.Windows.Forms.Button();
-         this.btnDebitDining = new System.Windows.Forms.Button();
-         this.btnDebitFood = new System.Windows.Forms.Button();
          this.btnViewData = new System.Windows.Forms.Button();
          this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
          this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -124,14 +120,10 @@
          this.splitContainer1.Panel2.Controls.Add(this.btnSave);
          this.splitContainer1.Panel2.Controls.Add(this.btnImportStatement);
          this.splitContainer1.Panel2.Controls.Add(this.btnCredit);
-         this.splitContainer1.Panel2.Controls.Add(this.btnDebitJoy);
          this.splitContainer1.Panel2.Controls.Add(this.btnDebitAuto);
-         this.splitContainer1.Panel2.Controls.Add(this.btnDebitSchool);
-         this.splitContainer1.Panel2.Controls.Add(this.btnDebitDining);
-         this.splitContainer1.Panel2.Controls.Add(this.btnDebitFood);
          this.splitContainer1.Panel2.Controls.Add(this.btnViewData);
-         this.splitContainer1.Size = new System.Drawing.Size(786, 379);
-         this.splitContainer1.SplitterDistance = 288;
+         this.splitContainer1.Size = new System.Drawing.Size(786, 321);
+         this.splitContainer1.SplitterDistance = 230;
          this.splitContainer1.TabIndex = 1;
          // 
          // splitContainer2
@@ -149,7 +141,7 @@
          // splitContainer2.Panel2
          // 
          this.splitContainer2.Panel2.Controls.Add(this.splitContainer3);
-         this.splitContainer2.Size = new System.Drawing.Size(786, 288);
+         this.splitContainer2.Size = new System.Drawing.Size(786, 230);
          this.splitContainer2.SplitterDistance = 286;
          this.splitContainer2.TabIndex = 1;
          // 
@@ -183,7 +175,7 @@
          this.splitContainer4.Panel2.Controls.Add(this.lblDiscrepancies);
          this.splitContainer4.Panel2.Controls.Add(this.lblBalance);
          this.splitContainer4.Panel2.Controls.Add(this.lblBankBalance);
-         this.splitContainer4.Size = new System.Drawing.Size(286, 288);
+         this.splitContainer4.Size = new System.Drawing.Size(286, 230);
          this.splitContainer4.SplitterDistance = 35;
          this.splitContainer4.TabIndex = 1;
          // 
@@ -386,7 +378,7 @@
          // splitContainer3.Panel2
          // 
          this.splitContainer3.Panel2.Controls.Add(this.lvBuckets);
-         this.splitContainer3.Size = new System.Drawing.Size(496, 288);
+         this.splitContainer3.Size = new System.Drawing.Size(496, 230);
          this.splitContainer3.SplitterDistance = 35;
          this.splitContainer3.TabIndex = 1;
          // 
@@ -426,7 +418,7 @@
          this.lvBuckets.HideSelection = false;
          this.lvBuckets.Location = new System.Drawing.Point(0, 0);
          this.lvBuckets.Name = "lvBuckets";
-         this.lvBuckets.Size = new System.Drawing.Size(492, 245);
+         this.lvBuckets.Size = new System.Drawing.Size(492, 187);
          this.lvBuckets.TabIndex = 0;
          this.lvBuckets.UseCompatibleStateImageBehavior = false;
          this.lvBuckets.View = System.Windows.Forms.View.Details;
@@ -440,7 +432,9 @@
          this.btnExport.Size = new System.Drawing.Size(86, 34);
          this.btnExport.TabIndex = 26;
          this.btnExport.Text = "E&xport";
-         this.toolTip1.SetToolTip(this.btnExport, "Displays a summary of transactions by category");
+         this.toolTip1.SetToolTip(this.btnExport, "Exports ALL transactions < selected Date.\r\nA confirmation Dialog asks if you want" +
+        " to Remove these exported transactions and replace with a single summary transac" +
+        "tion");
          this.btnExport.UseVisualStyleBackColor = false;
          this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
          // 
@@ -462,7 +456,7 @@
          // 
          this.btnActivity.BackColor = System.Drawing.Color.Tomato;
          this.btnActivity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.btnActivity.Location = new System.Drawing.Point(398, 46);
+         this.btnActivity.Location = new System.Drawing.Point(246, 6);
          this.btnActivity.Name = "btnActivity";
          this.btnActivity.Size = new System.Drawing.Size(76, 34);
          this.btnActivity.TabIndex = 24;
@@ -475,7 +469,7 @@
          // 
          this.btnMedical.BackColor = System.Drawing.Color.Tomato;
          this.btnMedical.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.btnMedical.Location = new System.Drawing.Point(398, 6);
+         this.btnMedical.Location = new System.Drawing.Point(164, 6);
          this.btnMedical.Name = "btnMedical";
          this.btnMedical.Size = new System.Drawing.Size(76, 34);
          this.btnMedical.TabIndex = 23;
@@ -488,9 +482,9 @@
          // 
          this.btnDebitHouse.BackColor = System.Drawing.Color.Tomato;
          this.btnDebitHouse.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.btnDebitHouse.Location = new System.Drawing.Point(319, 46);
+         this.btnDebitHouse.Location = new System.Drawing.Point(164, 45);
          this.btnDebitHouse.Name = "btnDebitHouse";
-         this.btnDebitHouse.Size = new System.Drawing.Size(73, 34);
+         this.btnDebitHouse.Size = new System.Drawing.Size(76, 34);
          this.btnDebitHouse.TabIndex = 22;
          this.btnDebitHouse.Text = "&House";
          this.toolTip1.SetToolTip(this.btnDebitHouse, "Enter a new Debit with Category = House");
@@ -501,9 +495,9 @@
          // 
          this.btnDebitUtility.BackColor = System.Drawing.Color.Tomato;
          this.btnDebitUtility.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.btnDebitUtility.Location = new System.Drawing.Point(240, 46);
+         this.btnDebitUtility.Location = new System.Drawing.Point(246, 45);
          this.btnDebitUtility.Name = "btnDebitUtility";
-         this.btnDebitUtility.Size = new System.Drawing.Size(73, 34);
+         this.btnDebitUtility.Size = new System.Drawing.Size(76, 34);
          this.btnDebitUtility.TabIndex = 21;
          this.btnDebitUtility.Text = "&Utility";
          this.toolTip1.SetToolTip(this.btnDebitUtility, "Enter a new Debit with Category = Utility");
@@ -529,7 +523,7 @@
          this.btnDebit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.btnDebit.Location = new System.Drawing.Point(82, 6);
          this.btnDebit.Name = "btnDebit";
-         this.btnDebit.Size = new System.Drawing.Size(73, 34);
+         this.btnDebit.Size = new System.Drawing.Size(76, 34);
          this.btnDebit.TabIndex = 19;
          this.btnDebit.Text = "&Misc";
          this.toolTip1.SetToolTip(this.btnDebit, "Enter a new Debit with Category = Misc");
@@ -573,70 +567,18 @@
          this.btnCredit.UseVisualStyleBackColor = false;
          this.btnCredit.Click += new System.EventHandler(this.btnCredit_Click);
          // 
-         // btnDebitJoy
-         // 
-         this.btnDebitJoy.BackColor = System.Drawing.Color.Tomato;
-         this.btnDebitJoy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.btnDebitJoy.Location = new System.Drawing.Point(319, 6);
-         this.btnDebitJoy.Name = "btnDebitJoy";
-         this.btnDebitJoy.Size = new System.Drawing.Size(73, 34);
-         this.btnDebitJoy.TabIndex = 11;
-         this.btnDebitJoy.Text = "&Joy";
-         this.toolTip1.SetToolTip(this.btnDebitJoy, "Enter a new Debit with Category = Joy");
-         this.btnDebitJoy.UseVisualStyleBackColor = false;
-         this.btnDebitJoy.Click += new System.EventHandler(this.btnDebitJoy_Click);
-         // 
          // btnDebitAuto
          // 
          this.btnDebitAuto.BackColor = System.Drawing.Color.Tomato;
          this.btnDebitAuto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.btnDebitAuto.Location = new System.Drawing.Point(82, 46);
          this.btnDebitAuto.Name = "btnDebitAuto";
-         this.btnDebitAuto.Size = new System.Drawing.Size(73, 34);
+         this.btnDebitAuto.Size = new System.Drawing.Size(76, 34);
          this.btnDebitAuto.TabIndex = 9;
          this.btnDebitAuto.Text = "&Auto";
          this.toolTip1.SetToolTip(this.btnDebitAuto, "Enter a new Debit with Category = Auto");
          this.btnDebitAuto.UseVisualStyleBackColor = false;
          this.btnDebitAuto.Click += new System.EventHandler(this.btnDebitAuto_Click);
-         // 
-         // btnDebitSchool
-         // 
-         this.btnDebitSchool.BackColor = System.Drawing.Color.Tomato;
-         this.btnDebitSchool.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.btnDebitSchool.Location = new System.Drawing.Point(161, 46);
-         this.btnDebitSchool.Name = "btnDebitSchool";
-         this.btnDebitSchool.Size = new System.Drawing.Size(73, 34);
-         this.btnDebitSchool.TabIndex = 8;
-         this.btnDebitSchool.Text = "Schoo&l";
-         this.toolTip1.SetToolTip(this.btnDebitSchool, "Enter a new Debit with Category = School");
-         this.btnDebitSchool.UseVisualStyleBackColor = false;
-         this.btnDebitSchool.Click += new System.EventHandler(this.btnDebitSchool_Click);
-         // 
-         // btnDebitDining
-         // 
-         this.btnDebitDining.BackColor = System.Drawing.Color.Tomato;
-         this.btnDebitDining.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.btnDebitDining.Location = new System.Drawing.Point(240, 6);
-         this.btnDebitDining.Name = "btnDebitDining";
-         this.btnDebitDining.Size = new System.Drawing.Size(73, 34);
-         this.btnDebitDining.TabIndex = 7;
-         this.btnDebitDining.Text = "&Dining";
-         this.toolTip1.SetToolTip(this.btnDebitDining, "Enter a new Debit with Category = Dining");
-         this.btnDebitDining.UseVisualStyleBackColor = false;
-         this.btnDebitDining.Click += new System.EventHandler(this.btnDebitDining_Click);
-         // 
-         // btnDebitFood
-         // 
-         this.btnDebitFood.BackColor = System.Drawing.Color.Tomato;
-         this.btnDebitFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.btnDebitFood.Location = new System.Drawing.Point(161, 6);
-         this.btnDebitFood.Name = "btnDebitFood";
-         this.btnDebitFood.Size = new System.Drawing.Size(73, 34);
-         this.btnDebitFood.TabIndex = 6;
-         this.btnDebitFood.Text = "&Food";
-         this.toolTip1.SetToolTip(this.btnDebitFood, "Enter a new Debit with Category = Food");
-         this.btnDebitFood.UseVisualStyleBackColor = false;
-         this.btnDebitFood.Click += new System.EventHandler(this.btnDebitFood_Click);
          // 
          // btnViewData
          // 
@@ -722,7 +664,7 @@
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-         this.ClientSize = new System.Drawing.Size(786, 379);
+         this.ClientSize = new System.Drawing.Size(786, 321);
          this.ContextMenuStrip = this.contextMenuStrip1;
          this.Controls.Add(this.splitContainer1);
          this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -769,10 +711,6 @@
       private System.Windows.Forms.Label lblBuckets;
       private System.Windows.Forms.Button btnViewData;
 		private System.Windows.Forms.Button btnDebitAuto;
-		private System.Windows.Forms.Button btnDebitSchool;
-		private System.Windows.Forms.Button btnDebitDining;
-      private System.Windows.Forms.Button btnDebitFood;
-		private System.Windows.Forms.Button btnDebitJoy;
 		private System.Windows.Forms.Label label2;
       private System.Windows.Forms.Label label1;
       private System.Windows.Forms.TextBox txtDiscrepancies;
